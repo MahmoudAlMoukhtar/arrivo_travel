@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply font-["Alexandria"];
+  }
+  .wrapper {
+    @apply mx-auto max-w-[95%] md:max-w-[87%] lg:max-w-[85%] xl:max-w-[1280px];
+  }
+  .orange-hover {
+    @apply duration-500 border-2 border-solid cursor-pointer hover:bg-white hover:shadow-md border-orange hover:text-orange;
+  }
+  .bluish-hover {
+    @apply duration-500 border-2 border-solid cursor-pointer hover:bg-[#02151F] hover:shadow-md border-[#02151F];
+  }
+}
+
+input.PhoneInputInput {
+  border: 0 !important;
+  outline: none !important;
+  background: transparent;
+}
+
+div.PhoneInputCountrySelectArrow {
+  margin: 0px 10px;
+}
+
+.service-shadow {
+  box-shadow: 2px 2px 0px #4d4d4d;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.my-slider-container {
+  transform: scaleX(-1);
+}
