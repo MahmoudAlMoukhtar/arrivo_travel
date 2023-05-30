@@ -4,6 +4,7 @@ import Offer from "../../components/sub/Offer";
 import Navbar from "../../components/Navbar";
 import BreadCrumb from "../../components/BreadCrumb";
 import Program from "../../components/Program";
+import Footer from "../../components/Footer";
 
 const ProgramPage = () => {
   return (
@@ -26,7 +27,9 @@ const ProgramPage = () => {
         {/* <SimilarOffers /> */}
       </main>
 
-      <footer className="">{/* <Footer /> */}</footer>
+      <footer className="">
+        <Footer />
+      </footer>
     </div>
   );
 };

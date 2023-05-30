@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Navbar from "../components/Navbar";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
+import {useRouter} from "next/router";
+import {useEffect} from "react";
 import Hero from "../components/Hero";
 import Enjoy from "../components/Enjoy";
 import Book from "../components/Book";
