@@ -51,12 +51,12 @@ const Reviews = () => {
     rtl: true,
   };
   return (
-    <div className="py-[80px]">
+    <div className="py-[80px] bg-[#F5F8FB]">
       <div className="wrapper">
         <div className="flex flex-col gap-[4px]">
           <p className="text-orange font-bold-500 text-[16px]">عملاء سعداء</p>
-          <h2 className="text-[24px] sm:text-[28px] md:text-[36px] font-bold-600">
-            غير مقتنع؟ اسمع من عملائنا
+          <h2 className="text-[24px] sm:text-[48px] md:text-[36px] font-bold-600">
+            غير مقتنع؟ اسمع <br className="hidden sm:block" /> من عملائنا
           </h2>
         </div>
         <div className="grid grid-cols-12 gap-[20px]">
@@ -97,7 +97,7 @@ const Reviews = () => {
               ))}
             </SlickSlider>
           </div>
-          <div className="col-span-12 md:col-span-7 lg:col-span-7 md:mt-[-100px] hidden sm:block">
+          <div className="col-span-12 md:col-span-7 lg:col-span-7 md:mt-[-100px] hidden md:block">
             <RevsImgs />
           </div>
         </div>

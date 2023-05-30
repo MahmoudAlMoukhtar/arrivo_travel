@@ -1,5 +1,4 @@
 import React from "react";
-import { useG } from "../../context/OurContext";
 import BarButton from "./helpers/BarButton";
 
 const ProgramInfoBar = () => {
@@ -11,7 +10,7 @@ const ProgramInfoBar = () => {
         <BarButton name="stay" text="الإقامة" />
         <BarButton name="ratings" text="تقييمات العملاء" />
         <BarButton name="terms" text="شروط و أحكام" />
-        <BarButton name="cancel" text="سياسة إلغاء الرحلة" />
+        {/*         <BarButton name="cancel" text="سياسة إلغاء الرحلة" />*/}
         <BarButton name="faq" text="أسئلة شائعة" />
       </div>
     </div>

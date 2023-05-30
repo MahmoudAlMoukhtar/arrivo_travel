@@ -1,8 +1,8 @@
 import Head from "next/head";
-import React, { useRef } from "react";
+import React, {useRef} from "react";
 import Slider from "react-slick";
 
-const SlickSlider = ({ children, settings }) => {
+const SlickSlider = ({children, settings}) => {
   return (
     <div dir="ltr" className="relative">
       <Head>

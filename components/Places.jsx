@@ -63,7 +63,7 @@ const Places = () => {
     <div className="py-[80px] bg-[#F5F8FB] ">
       <div className="wrapper">
         <div className="flex flex-col lg:flex-row lg:items-center gap-[20px]">
-          <div className="flex flex-col sm:flex-row lg:flex-col items-center lg:items-start gap-[20px] lg:max-w-[387px]">
+          <div className="flex flex-col sm:flex-row lg:flex-col items-start md:items-center gap-[20px] lg:max-w-[387px]">
             <div className="relative sm:w-fit">
               <p className="text-orange font-bold-500 text-[16px] ">
                 تصفح حسب الوجهة

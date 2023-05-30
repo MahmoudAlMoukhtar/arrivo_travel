@@ -86,13 +86,13 @@ const titleVariants = {
   },
 };
 
-const DailyDests = () => {
+const SimilarTrips = () => {
   const settings = {
     // dots: true,
     // infinite: true,
     speed: 800,
     slidesToShow: 4,
-    slidesToScroll: 2,
+    slidesToScroll: 1,
     initialSlide: 0,
 
     // swipeToSlide: false,
@@ -113,7 +113,7 @@ const DailyDests = () => {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 2,
+          slidesToScroll: 1,
           initialSlide: 0,
           // infinite: true,
           // dots: true,
@@ -123,7 +123,7 @@ const DailyDests = () => {
         breakpoint: 768,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToScroll: 1,
           // infinite: true,
           // dots: true,
         },
@@ -167,15 +167,12 @@ const DailyDests = () => {
       <div className="wrapper">
         <div className="flex justify-between items-center">
           <div className="flex flex-col gap-[4px]">
-            <p className="text-orange font-bold-500 text-[16px]">رحلات يومية</p>
-            <motion.h2
-              variants={titleVariants}
-              initial="hidden"
-              whileInView="show"
-              className=" text-[24px] sm:text-[28px] md:text-[36px] lg:[48px] font-bold-600"
-            >
-              إستمتع و إكتشف أحدث الأماكن
-            </motion.h2>
+            <p className="text-orange font-bold-500 text-[16px]">
+              شاهد خيارات اخرى
+            </p>
+            <h2 className=" text-[24px] sm:text-[28px] md:text-[36px] lg:[48px] font-bold-600">
+              عروض مشابهة
+            </h2>
           </div>
         </div>
         <div className="mt-[48px] scale-x-[-1] sm:scale-x-[1]" dir="rtl">
@@ -270,7 +267,7 @@ const DailyDests = () => {
   );
 };
 
-export default DailyDests;
+export default SimilarTrips;
 
 function SampleNextArrow(props) {
   const {className, style, onClick} = props;
@@ -278,7 +275,7 @@ function SampleNextArrow(props) {
   return (
     <div
       onClick={onClick}
-      className="absolute top-[-50px] left-0 z-[999] bg-white"
+      className="absolute top-[-50px] right-[48px] sm:left-0 z-[999] bg-white"
     >
       <div className="w-[40px] h-[40px]  cursor-pointer hover:scale-[0.95] duration-300 ease-in relative">
         <Image alt="" src="/icons/slick/arrow.png" fill />
@@ -291,7 +288,7 @@ function SamplePrevArrow(props) {
   const {className, style, onClick} = props;
   return (
     <div
-      className="absolute top-[-50px] left-[48px] z-[999] bg-white"
+      className="absolute top-[-50px] right-0 sm:left-[48px] z-[999] bg-white"
       onClick={onClick}
     >
       <div className="w-[40px] h-[40px] cursor-pointer hover:scale-[0.95] duration-300 ease-in relative">

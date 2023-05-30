@@ -36,12 +36,14 @@ const TripContent = () => {
       <div className="flex items-center gap-x-[8px]">
         <Image
           alt=""
-          src="/icons/trip.png"
+          src="/icons/info.png"
           height={24}
           width={24}
           className="shrink-0"
         />
-        <h2 className="text-[28px] font-bold">محتويات الرحلة :</h2>
+        <h2 className="text-[24px] sm:text-[28px] lg:text-[36px] font-bold">
+          محتويات الرحلة :
+        </h2>
       </div>
       <div className="grid grid-cols-12 gap-[12px]">
         {conts.map((cont, i) => (

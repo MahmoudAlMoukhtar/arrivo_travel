@@ -53,7 +53,7 @@ const Services = () => {
             whileInView="show"
             className="hidden md:block"
           >
-            <div className="h-[396px] w-[386px] relative">
+            <div className="h-[396px] w-[386px] relative hidden lg:block">
               <Image alt="" src="/images/services/illus.png" fill />
             </div>
           </motion.div>

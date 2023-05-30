@@ -8,19 +8,19 @@ import Link from "next/link";
 const animateVariants = {
   hidden: {
     opacity: 0,
-    y: -15,
+    translateY: -30,
   },
   show: {
     opacity: 1,
-    y: 0,
+    translateY: 0,
     transition: {
-      delay: 0.2,
-      duration: 0.6,
+      delay: 0.7,
+      duration: 0.8,
     },
   },
 };
 
-const containerVariants = {
+/* const containerVariants = {
   hidden: {opacity: 0.8},
   show: {
     opacity: 1,
@@ -38,7 +38,7 @@ const imageVariants = {
     translateX: 0,
     transition: {type: "spring", stiffness: 30, duration: 0.6},
   },
-};
+}; */
 
 const buttonVariants = {
   initial: {
@@ -118,15 +118,12 @@ const Hero = () => {
           {/* images */}
           <div className="col-span-12 sm:col-span-5 lg:col-span-3 ">
             <motion.div
-              variants={containerVariants}
+              variants={animateVariants}
               initial="hidden"
-              animate="show"
+              whileInView="show"
               className="grid grid-cols-12 gap-[12px]"
             >
-              <motion.div
-                variants={imageVariants}
-                className="order-2 md:order-1 col-span-6 sm:col-span-4 h-[226px] md:h-[342px] relative"
-              >
+              <motion.div className="order-2 md:order-1 col-span-6 sm:col-span-4 h-[226px] md:h-[342px] relative">
                 <Link href={"/"}>
                   <Image
                     src="/images/hero/tabzon.png"
@@ -141,10 +138,7 @@ const Hero = () => {
                   </div>
                 </Link>
               </motion.div>
-              <motion.div
-                variants={imageVariants}
-                className="order-1 md:order-2 col-span-12 sm:col-span-4 h-[175px] md:h-[342px] relative"
-              >
+              <motion.div className="order-1 md:order-2 col-span-12 sm:col-span-4 h-[175px] md:h-[342px] relative">
                 <Link href={"/"}>
                   <Image
                     src={`/images/hero/${
@@ -161,10 +155,7 @@ const Hero = () => {
                   </div>
                 </Link>
               </motion.div>
-              <motion.div
-                variants={imageVariants}
-                className="order-3 md:order-3 col-span-6 sm:col-span-4 h-[226px] md:h-[342px] relative"
-              >
+              <motion.div className="order-3 md:order-3 col-span-6 sm:col-span-4 h-[226px] md:h-[342px] relative">
                 <Link href={"/"}>
                   <Image
                     src="/images/hero/istab.png"

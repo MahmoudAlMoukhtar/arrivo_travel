@@ -3,14 +3,14 @@ import React from "react";
 import OneLocation from "./helpers/OneLocation";
 
 const locs = [
-  { img: "loc-1.png", name: "دير سوميلا" },
-  { img: "loc-2.png", name: "مغار شال" },
-  { img: "loc-3.png", name: "مرتفعات سلطان مراد" },
-  { img: "loc-4.png", name: "قرية إيدر" },
-  { img: "loc-5.png", name: "قرية هامسي كوري" },
-  { img: "loc-6.png", name: "بحيرة أوزنجول" },
-  { img: "loc-7.png", name: "نهر و وادي الرياح" },
-  { img: "loc-8.png", name: "شلال بولفيت" },
+  {img: "loc-1.png", name: "دير سوميلا"},
+  {img: "loc-2.png", name: "مغار شال"},
+  {img: "loc-3.png", name: "مرتفعات سلطان مراد"},
+  {img: "loc-4.png", name: "قرية إيدر"},
+  {img: "loc-5.png", name: "قرية هامسي كوري"},
+  {img: "loc-6.png", name: "بحيرة أوزنجول"},
+  {img: "loc-7.png", name: "نهر و وادي الرياح"},
+  {img: "loc-8.png", name: "شلال بولفيت"},
 ];
 
 const TripPlaces = () => {
@@ -24,7 +24,7 @@ const TripPlaces = () => {
           width={24}
           className="shrink-0"
         />
-        <h2 className="text-[28px] font-bold">
+        <h2 className="text-[24px] sm:text-[28px] lg:text-[36px] font-bold">
           من أبرز الأماكن التي سنزورها :
         </h2>
       </div>

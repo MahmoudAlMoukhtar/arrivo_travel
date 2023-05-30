@@ -1,8 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import ToursBar from "./tours/ToursBar";
 import Image from "next/image";
 import useProgramFilter from "../hooks/useProgramFilter";
 import {motion} from "framer-motion";
+import Link from "next/link";
 
 const Tour = ({tour, createPersonsArabic}) => {
   const displayedStations = tour.tripStations.slice(0, 2); // Display only the first two stations
@@ -31,9 +32,10 @@ const Tour = ({tour, createPersonsArabic}) => {
       variants={animateVariants}
       initial="hidden"
       whileInView="show"
-      className="min-w-[285px] sm:col-span-12 md:col-span-4 lg:col-span-3"
+      className="min-w-[285px] sm:col-span-6 md:col-span-4 xl:col-span-3"
     >
-      <div
+      <Link
+        href={`/travels-programs/${tour._id}`}
         dir="rtl"
         className="relative shadow-md flex flex-col bg-white rounded-[12px]"
       >
@@ -98,12 +100,14 @@ const Tour = ({tour, createPersonsArabic}) => {
             </div>
           </div>
         </div>
-      </div>
+      </Link>
     </motion.div>
   );
 };
 
 const Tours = () => {
+  const [arrowWhite, setArrowWhite] = useState(false);
+
   const {filteredPrograms, country, setCountry} = useProgramFilter("istanbul");
 
   const createPersonsArabic = persons => {
@@ -164,15 +168,37 @@ const Tours = () => {
           ))}
           {/* button all */}
         </div>
-        <div className="w-full mt-4 flex">
-          <button className="mr-auto py-[12px] px-[20px] rounded-[8px] bg-[#072F45] text-white flex items-center gap-x-[4px] bluish-hover text-[16px]">
+        <div className="w-full mt-4 flex items-center justify-center">
+          <button
+            onMouseOver={() => setArrowWhite(true)}
+            onMouseOut={() => setArrowWhite(false)}
+            className="py-[12px] px-[20px] rounded-[8px] border-[1px] hover:bg-[#F08631] hover:text-white border-[#F08631] text-[#F08631] flex items-center gap-x-[4px]  text-[16px] transtion duration-200"
+          >
             كل البرامج السياحية
-            <Image
-              alt=""
-              src="/icons/tours/circle_arrow.svg"
-              height={24}
-              width={24}
-            />
+            <svg
+              width="25"
+              height="24"
+              viewBox="0 0 25 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M12.5 2.75024C5.563 2.75024 3.25 5.06324 3.25 12.0002C3.25 18.9372 5.563 21.2502 12.5 21.2502C19.437 21.2502 21.75 18.9372 21.75 12.0002C21.75 5.06324 19.437 2.75024 12.5 2.75024Z"
+                stroke={arrowWhite ? "#fff" : "#F6882F"}
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M13.9414 8.52856C13.9414 8.52856 10.4554 10.9206 10.4554 12.0006C10.4554 13.0806 13.9414 15.4706 13.9414 15.4706"
+                stroke={arrowWhite ? "#fff" : "#F6882F"}
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
           </button>
         </div>
       </div>

@@ -3,13 +3,13 @@ import React from "react";
 
 const backendHost = process.env.NEXT_PUBLIC_BACKEND_HOST;
 
-const OneLocation = ({ loc }) => {
+const OneLocation = ({loc}) => {
   return (
     <div className="col-span-6 md:col-span-3 flex flex-col gap-[4px]">
       <div className="w-full aspect-square md:h-[183px] relative">
         <Image
           alt=""
-          src={`${backendHost}/images/locations/${loc.img}`}
+          src={`/images/locations/${loc.img}`}
           className="object-cover rounded-[8px]"
           fill
         />
@@ -20,3 +20,4 @@ const OneLocation = ({ loc }) => {
 };
 
 export default OneLocation;
+/*           src={`${backendHost}/images/locations/${loc.img}`} */
