@@ -15,6 +15,10 @@
   .bluish-hover {
     @apply duration-500 border-2 border-solid cursor-pointer hover:bg-[#02151F] hover:shadow-md border-[#02151F];
   }
+ 
+}
+*{
+  scroll-behavior: smooth;
 }
 
 input.PhoneInputInput {
@@ -43,3 +47,88 @@ div.PhoneInputCountrySelectArrow {
 .my-slider-container {
   transform: scaleX(-1);
 }
+
+     .min-w {
+       min-width: 900px;
+     }
+  
+     .fixed {
+       position: fixed;
+       top: 0;
+       left: 0;
+       width: 100%;
+       z-index: 999;
+      padding: 8px 80px;
+     }
+
+/* 
+
+
+.slider-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.slider-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 50%;
+  height: 5px;
+  border-radius: 5px;
+  background-color: #ddd;
+  outline: none;
+  margin: 0 10px;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #4caf50;
+  cursor: pointer;
+}
+
+.tooltip {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.min-tooltip {
+  text-align: left;
+}
+
+.max-tooltip {
+  text-align: right;
+}
+
+button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button[type="submit"] {
+  margin-right: 10px;
+}
+
+button[type="reset"] {
+  background-color: #f44336;
+} */
