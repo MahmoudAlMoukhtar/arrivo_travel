@@ -61,74 +61,58 @@ div.PhoneInputCountrySelectArrow {
       padding: 8px 80px;
      }
 
-/* 
 
 
-.slider-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+         .image-grid {
+           display: grid;
+           grid-gap: 10px;
+           /* You can change the gap size to your liking */
+           grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+           /* This will create columns that adjust to fit the available space,
+         with a minimum width of 200px and a maximum width of 1fr (i.e. equal width) */
+         }
+    
+         .image-grid img {
+           max-width: 100%;
+           height: auto;
+           object-fit: cover;           
+           /* This will make sure all images fill their container without stretching them */
+         }
 
-.slider-wrapper {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: 10px;
-}
+         #liner{
+          background: "linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.0086472) 5.22%, rgba(255, 255, 255, 0.03551) 10.43%, rgba(255, 255, 255, 0.0816599) 15.65%, rgba(255, 255, 255, 0.147411) 20.86%, rgba(255, 255, 255, 0.231775) 26.08%, rgba(255, 255, 255, 0.331884) 31.29%, rgba(255, 255, 255, 0.442691) 36.51%, rgba(255, 255, 255, 0.557309) 41.73%, rgba(255, 255, 255, 0.668116) 46.94%, rgba(255, 255, 255, 0.768225) 52.16%, rgba(255, 255, 255, 0.852589) 57.37%, rgba(255, 255, 255, 0.91834) 62.59%, rgba(255, 255, 255, 0.96449) 67.8%, rgba(255, 255, 255, 0.991353) 73.02%, #FFFFFF 78.24%), linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.0086472) 5.22%, rgba(255, 255, 255, 0.03551) 10.43%, rgba(255, 255, 255, 0.0816599) 15.65%, rgba(255, 255, 255, 0.147411) 20.86%, rgba(255, 255, 255, 0.231775) 26.08%, rgba(255, 255, 255, 0.331884) 31.29%, rgba(255, 255, 255, 0.442691) 36.51%, rgba(255, 255, 255, 0.557309) 41.73%, rgba(255, 255, 255, 0.668116) 46.94%, rgba(255, 255, 255, 0.768225) 52.16%, rgba(255, 255, 255, 0.852589) 57.37%, rgba(255, 255, 255, 0.91834) 62.59%, rgba(255, 255, 255, 0.96449) 67.8%, rgba(255, 255, 255, 0.991353) 73.02%, #FFFFFF 78.24%)";
+         }
 
-.slider {
-  -webkit-appearance: none;
-  width: 50%;
-  height: 5px;
-  border-radius: 5px;
-  background-color: #ddd;
-  outline: none;
-  margin: 0 10px;
-}
-
-.slider::-webkit-slider-thumb {
+input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
-  background-color: #4caf50;
+  background-color: #fff;
+  border: 5px solid #F08631;
+  cursor: pointer;
+  
+}
+
+input[type=range]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #fff;
+    border: 5px solid #F08631;
   cursor: pointer;
 }
 
-.tooltip {
-  display: flex;
-  justify-content: space-between;
-  width: 50%;
-  margin-top: 10px;
-  font-size: 14px;
-  font-weight: bold;
-}
-
-.min-tooltip {
-  text-align: left;
-}
-
-.max-tooltip {
-  text-align: right;
-}
-
-button {
-  margin-top: 10px;
-  padding: 5px 10px;
-  font-size: 16px;
-  border-radius: 5px;
-  background-color: #4caf50;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-
-button[type="submit"] {
-  margin-right: 10px;
-}
-
-button[type="reset"] {
-  background-color: #f44336;
+/* input[type="checkbox"] {
+  display: none;
 } */
+
+input[type=checkbox] {
+width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 5px solid #F08631;
+  cursor: pointer;
+}
