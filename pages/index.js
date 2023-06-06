@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/common/Navbar";
 import {useRouter} from "next/router";
 import {useEffect} from "react";
 import Hero from "../components/Hero";
@@ -14,7 +14,7 @@ import Offer from "../components/sub/Offer";
 import Tours from "../components/Tours";
 import BlogShort from "../components/BlogShort";
 import ContactShort from "../components/ContactShort";
-import Footer from "../components/Footer";
+import Footer from "../components/common/Footer";
 
 export default function Home() {
   const router = useRouter();

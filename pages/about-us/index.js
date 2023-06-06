@@ -1,16 +1,14 @@
 import Head from "next/head";
-import React from "react";
 import Offer from "../../components/sub/Offer";
-import Navbar from "../../components/Navbar";
-import BreadCrumb from "../../components/BreadCrumb";
-import Program from "../../components/Program";
-import Footer from "../../components/Footer";
+import Navbar from "../../components/common/Navbar";
+import AboutUs from "./AboutUs";
+import Footer from "../../components/common/Footer";
 
-const ProgramPage = () => {
+const AboutPage = () => {
   return (
     <div className="">
       <Head>
-        <title>Arrivo | Program Title</title>
+        <title>Arrivo | About us</title>
         <meta
           name="description"
           content="This is a beautiful travel agency website"
@@ -22,9 +20,7 @@ const ProgramPage = () => {
           <Offer />
         </div>
         <Navbar />
-        <BreadCrumb />
-        <Program />
-        {/* <SimilarOffers /> */}
+        <AboutUs />
       </main>
 
       <footer className="">
@@ -34,4 +30,4 @@ const ProgramPage = () => {
   );
 };
 
-export default ProgramPage;
+export default AboutPage;
