@@ -172,7 +172,7 @@ const DailyDests = () => {
               variants={titleVariants}
               initial="hidden"
               whileInView="show"
-              className=" text-[24px] sm:text-[28px] md:text-[36px] lg:[48px] font-bold-600"
+              className=" text-[24px] sm:text-[28px] md:text-[36px] lg:text-[48px] font-bold-600"
             >
               إستمتع و إكتشف أحدث الأماكن
             </motion.h2>

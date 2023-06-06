@@ -1,7 +1,31 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const BoxOne = ({shouldRenderMobileView}) => {
+  const shareText = "Check out this awesome trip!";
+
+  function handleFacebookClick() {
+    console.log(window.location.href);
+    const url = `https://www.facebook.com/sharer.php?u=${encodeURIComponent(
+      "https://github.com/MahmoudAlMoukhtar/arrivo_travel"
+    )}&quote=${encodeURIComponent(shareText)}`;
+    window.open(url, "_blank", "width=600,height=400");
+  }
+
+  function handleWhatsAppClick() {
+    const shareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(
+      shareText
+    )} ${encodeURIComponent(
+      "https://github.com/MahmoudAlMoukhtar/arrivo_travel"
+    )}`;
+    const link = document.createElement("a");
+    link.href = shareUrl;
+    link.target = "_blank";
+    document.body.appendChild(link);
+    link.click();
+  }
+
   return (
     <div
       className={
@@ -31,20 +55,26 @@ const BoxOne = ({shouldRenderMobileView}) => {
       <p className="text-[16px] text-[#636973]">
         رحلة العمر نضمن لك فيها السعادة. نوفر لكم الأسعار المناسبة و الملائمة.
       </p>
-      <div className="flex  md:justify-between md:flex-col lg:flex-row gap-4">
-        <button className="flex gap-[4px] items-center justify-center h-[40px] md:h-[48px] py-[6px] md:py-[12px] px-[16px] md:px-[20px] bg-orange text-white text-[14px] md:text-[16px] rounded-[8px] hover:shadow">
+      <div className="flex  md:justify-between md:flex-col xl:flex-row gap-4">
+        <Link
+          href={"/travels-programs/program/timings-prices"}
+          className="flex gap-[4px] items-center justify-center h-[40px] md:h-[48px] py-[6px] md:py-[12px] px-[16px] md:px-[20px] bg-orange text-white text-[14px] md:text-[16px] rounded-[8px] hover:shadow"
+        >
           <div className="h-[20px] w-[20px] md:h-[24px] md:w-[24px] relative">
             <Image alt="" src="/icons/date.png" fill />
           </div>
-          <span>شاهد التوفر و الأسعار</span>
-        </button>
-        <div className="flex lg:justify-center items-center gap-[20px]">
+          <p>شاهد التوفر و الأسعار</p>
+        </Link>
+        <div className="flex xl:justify-center items-center gap-[20px] lg:gap-[10px]">
           <button className="flex items-center justify-center w-full lg:h-[48px] p-[6px] md:p-[12px] rounded-[8px] border border-solid border-orange">
             <div className="h-[20px] w-[20px] md:h-[24px] md:w-[24px] relative">
               <Image alt="" src="/icons/save.svg" fill />
             </div>
           </button>
-          <button className="flex items-center justify-center w-full lg:h-[48px] p-[6px] md:p-[12px] rounded-[8px] border border-solid border-orange">
+          <button
+            onClick={handleWhatsAppClick}
+            className="flex items-center justify-center w-full lg:h-[48px] p-[6px] md:p-[12px] rounded-[8px] border border-solid border-orange"
+          >
             <div className="h-[20px] w-[20px] md:h-[24px] md:w-[24px] relative">
               <Image alt="" src="/icons/share.png" fill />
             </div>

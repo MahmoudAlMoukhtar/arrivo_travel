@@ -201,7 +201,7 @@ const ProgramStay = () => {
       {
         breakpoint: 420,
         settings: {
-          slidesToShow: 1.2,
+          slidesToShow: 1.3,
           slidesToScroll: 1,
         },
       },

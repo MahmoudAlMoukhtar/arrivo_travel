@@ -9,32 +9,27 @@ const twitterLink = "";
 
 const currentYear = new Date().getFullYear();
 
-const animateVariants = {
-  hidden: {
-    opacity: 0,
-    translateY: -40,
-  },
-  show: {
-    opacity: 1,
-    translateY: 0,
-    transition: {
-      delay: 0.2,
-      duration: 0.6,
-    },
-  },
-};
+// const animateVariants = {
+//   hidden: {
+//     opacity: 0,
+//     translateY: -40,
+//   },
+//   show: {
+//     opacity: 1,
+//     translateY: 0,
+//     transition: {
+//       delay: 0.2,
+//       duration: 0.6,
+//     },
+//   },
+// };
 
 const Footer = () => {
   return (
     <div className="py-[80px] bg-[#F5F8FB]">
       <div className="wrapper">
         {/* big grid */}
-        <motion.div
-          variants={animateVariants}
-          initial="hidden"
-          whileInView="show"
-          className="grid grid-cols-5 gap-[32px]"
-        >
+        <div className="grid grid-cols-5 gap-[32px]">
           {/* first grid */}
           <div className="col-span-5 xl:col-span-3 grid grid-cols-12 gap-[20px]">
             <div className="col-span-12 md:col-span-4 flex flex-col gap-[8px]">
@@ -48,7 +43,7 @@ const Footer = () => {
                 “اريفو للسياحة نحاول فقط صناعة لحظات سعيدة”
               </p>
             </div>
-            <div className="col-span-6 md:col-span-4 flex flex-col gap-[8px]">
+            <div className="col-span-12 sm:col-span-6 md:col-span-4 flex flex-col gap-[8px]">
               <h4 className="text-[18px] font-bold-600 text-black">
                 روابط مهمة
               </h4>
@@ -80,7 +75,7 @@ const Footer = () => {
                 </Link>
               </div>
             </div>
-            <div className="col-span-6 md:col-span-4 flex flex-col gap-[8px]">
+            <div className="col-span-12 sm:col-span-6 md:col-span-4 flex flex-col gap-[8px]">
               <h4 className="text-[18px] font-bold-600 text-black">خدماتنا</h4>
               <div className="flex flex-col gap-[10px] text-[12px]">
                 <Link href="/">
@@ -219,7 +214,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
         <hr className="h-[1px] bg-[#C8CBD0] w-full my-[24px]" />
         <p className="text-[12px] text-grey w-fit mx-auto">
           © {currentYear} Arrivo. كل الحقوق محفوظة.

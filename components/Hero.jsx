@@ -74,12 +74,7 @@ const Hero = () => {
       <div className="wrapper">
         <div className="grid grid-cols-12 sm:grid-cols-5 gap-y-[80px] gap-x-[10px]">
           {/* klam */}
-          <motion.div
-            variants={animateVariants}
-            initial="hidden"
-            whileInView="show"
-            className="col-span-12 sm:col-span-5 lg:col-span-2 flex flex-col items-center justify-center lg:items-start gap-[20px] md:max-w-[570px] md:mx-auto relative"
-          >
+          <div className="col-span-12 sm:col-span-5 lg:col-span-2 flex flex-col items-center justify-center lg:items-start gap-[20px] md:max-w-[570px] md:mx-auto relative">
             <div className="">
               <p className="text-[16px] font-bold-500 text-center lg:text-right text-orange ">
                 إحجز رحلتك الآن
@@ -114,15 +109,10 @@ const Hero = () => {
                 />
               </div>
             </div>
-          </motion.div>
+          </div>
           {/* images */}
           <div className="col-span-12 sm:col-span-5 lg:col-span-3 ">
-            <motion.div
-              variants={animateVariants}
-              initial="hidden"
-              whileInView="show"
-              className="grid grid-cols-12 gap-[12px]"
-            >
+            <div className="grid grid-cols-12 gap-[12px]">
               <motion.div className="order-2 md:order-1 col-span-6 sm:col-span-4 h-[226px] md:h-[342px] relative">
                 <Link href={"/"}>
                   <Image
@@ -170,7 +160,7 @@ const Hero = () => {
                   </div>
                 </Link>
               </motion.div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>
@@ -179,3 +169,16 @@ const Hero = () => {
 };
 
 export default Hero;
+/* 
+motion.div
+            variants={animateVariants}
+            initial="hidden"
+            whileInView="show"
+*/
+
+/* 
+motion.div
+              variants={animateVariants}
+              initial="hidden"
+              whileInView="show"
+*/

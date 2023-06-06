@@ -169,29 +169,18 @@ const BlogShort = () => {
         <div className="flex flex-col gap-y-[16px] lg:items-center lg:justify-center">
           <div className="flex flex-col lg:items-center gap-[6px]">
             <p className="text-orange font-bold-500 text-[16px]">المقالات</p>
-            <motion.h2
-              variants={titleVariants}
-              initial="hidden"
-              whileInView="show"
-              className="text-[28px] md:text-[36px] font-bold-600"
-            >
+            <h2 className="text-[28px] md:text-[36px] font-bold-600">
               أبرز المقالات
-            </motion.h2>
+            </h2>
           </div>
         </div>
-        <motion.div
-          variants={animateVariants}
-          initial="hidden"
-          whileInView="show"
-          className="mt-[48px]"
-          dir="rtl"
-        >
+        <div className="mt-[48px]" dir="rtl">
           <SlickSlider settings={settings}>
             {posts.reverse().map((post, i) => (
               <Blog post={post} key={i} />
             ))}
           </SlickSlider>
-        </motion.div>
+        </div>
       </div>
     </div>
   );
@@ -232,3 +221,15 @@ function SamplePrevArrow(props) {
     </div>
   );
 }
+/* 
+motion.h2
+              variants={titleVariants}
+              initial="hidden"
+              whileInView="show"
+*/
+/* 
+motion.div
+          variants={animateVariants}
+          initial="hidden"
+          whileInView="show"
+*/

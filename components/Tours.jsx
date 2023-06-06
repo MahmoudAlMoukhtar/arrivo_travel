@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import ToursBar from "./tours/ToursBar";
 import Image from "next/image";
 import useProgramFilter from "../hooks/useProgramFilter";
@@ -13,27 +13,9 @@ const Tour = ({tour, createPersonsArabic}) => {
   }
 
   const formattedStations = displayedStations.join(" - "); // Join the stations separated by '-'
-  const animateVariants = {
-    hidden: {
-      opacity: 0,
-      translateY: -30,
-    },
-    show: {
-      opacity: 1,
-      translateY: 0,
-      transition: {
-        delay: 0.7,
-        duration: 0.4,
-      },
-    },
-  };
+
   return (
-    <motion.div
-      variants={animateVariants}
-      initial="hidden"
-      whileInView="show"
-      className="min-w-[285px] sm:col-span-6 md:col-span-4 xl:col-span-3"
-    >
+    <div className="min-w-[285px] sm:col-span-6 md:col-span-4 xl:col-span-3">
       <Link
         href={`/travels-programs/${tour._id}`}
         dir="rtl"
@@ -101,7 +83,7 @@ const Tour = ({tour, createPersonsArabic}) => {
           </div>
         </div>
       </Link>
-    </motion.div>
+    </div>
   );
 };
 
@@ -132,7 +114,21 @@ const Tours = () => {
 
     return toReturn;
   };
-
+  const animateVariants = {
+    hidden: {
+      opacity: 0,
+      translateY: -30,
+    },
+    show: {
+      opacity: 1,
+      translateY: 0,
+      transition: {
+        delay: 0.7,
+        duration: 0.4,
+      },
+    },
+  };
+  useEffect(() => {}, [setCountry, filteredPrograms]);
   const firstSix = filteredPrograms.slice(0, 8);
 
   return (
@@ -158,7 +154,14 @@ const Tours = () => {
       </div>
       {/* actual tours */}
       <div className="wrapper">
-        <div className="mt-8 flex overflow-x-scroll scrollbar-hide pb-3 sm:flex-none sm:grid sm:grid-cols-12 gap-[12px]">
+        <motion.div
+          key={country}
+          variants={animateVariants}
+          initial="hidden"
+          animate="show"
+          transition={{duration: 0.5}}
+          className="mt-8 flex overflow-x-scroll scrollbar-hide pb-3 sm:flex-none sm:grid sm:grid-cols-12 gap-[12px]"
+        >
           {firstSix.map((tour, i) => (
             <Tour
               key={i}
@@ -166,8 +169,7 @@ const Tours = () => {
               createPersonsArabic={createPersonsArabic}
             />
           ))}
-          {/* button all */}
-        </div>
+        </motion.div>
         <div className="w-full mt-4 flex items-center justify-center">
           <button
             onMouseOver={() => setArrowWhite(true)}
@@ -207,3 +209,37 @@ const Tours = () => {
 };
 
 export default Tours;
+/* 
+motion.div
+          variants={animateVariants}
+          initial="hidden"
+          whileInView="show"
+*/
+/* 
+ const animateVariants = {
+     hidden: {
+       opacity: 0,
+       translateY: -30,
+     },
+     show: {
+       opacity: 1,
+       translateY: 0,
+       transition: {
+         delay: 0.7,
+         duration: 0.4,
+       },
+     },
+   };
+*/
+/* 
+<div className="mt-8 flex overflow-x-scroll scrollbar-hide pb-3 sm:flex-none sm:grid sm:grid-cols-12 gap-[12px]">
+          {firstSix.map((tour, i) => (
+            <Tour
+              key={i}
+              tour={tour}
+              createPersonsArabic={createPersonsArabic}
+            />
+          ))}
+          
+        </div>
+*/

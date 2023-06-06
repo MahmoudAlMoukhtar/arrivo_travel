@@ -27,14 +27,9 @@ const Enjoy = () => {
             <h1 className="font-bold-600 text-[24px] sm:text-[36px] text-center">
               استمتع بتجربة سياحية لا <br /> تُنسى تتضمن:
             </h1>
-            <motion.div
-              variants={opaciVariants}
-              initial="hidden"
-              whileInView="show"
-              className="grid grid-cols-12 gap-x-[25px] sm:gap-x-[20px] gap-y-[32px]"
-            >
+            <div className="grid grid-cols-12 gap-x-[25px] sm:gap-x-[20px] gap-y-[32px]">
               {/* one item */}
-              <div className=" col-span-12 sm:col-span-6 lg:col-span-3 flex flex-col items-center gap-[12px] p-1 md:p-2 hover:shadow-md hover:translate-y-[-8px] duration-500 rounded-md cursor-pointer">
+              <div className=" col-span-12 sm:col-span-6 lg:col-span-3 flex flex-col items-center gap-[12px] p-1 md:p-2  duration-500 rounded-md ">
                 <Image
                   alt=""
                   src="/icons/enjoy/support.svg"
@@ -50,7 +45,7 @@ const Enjoy = () => {
                 </div>
               </div>
               {/* one item */}
-              <div className="col-span-12 sm:col-span-6 lg:col-span-3 flex flex-col items-center gap-[12px] p-1 md:p-2 hover:shadow-md hover:translate-y-[-8px] duration-500 rounded-md cursor-pointer">
+              <div className="col-span-12 sm:col-span-6 lg:col-span-3 flex flex-col items-center gap-[12px] p-1 md:p-2  duration-500 rounded-md ">
                 <Image
                   alt=""
                   src="/icons/enjoy/cashy.svg"
@@ -66,7 +61,7 @@ const Enjoy = () => {
                 </div>
               </div>
               {/* one item */}
-              <div className="col-span-12 sm:col-span-6 lg:col-span-3 flex flex-col items-center gap-[12px] p-1 md:p-2 hover:shadow-md hover:translate-y-[-8px] duration-500 rounded-md cursor-pointer">
+              <div className="col-span-12 sm:col-span-6 lg:col-span-3 flex flex-col items-center gap-[12px] p-1 md:p-2  duration-500 rounded-md ">
                 <Image
                   alt=""
                   src="/icons/enjoy/stars.svg"
@@ -82,7 +77,7 @@ const Enjoy = () => {
                 </div>
               </div>
               {/* one item */}
-              <div className="col-span-12 sm:col-span-6 lg:col-span-3 flex flex-col items-center gap-[12px] p-1 md:p-2 hover:shadow-md hover:translate-y-[-8px] duration-500 rounded-md cursor-pointer">
+              <div className="col-span-12 sm:col-span-6 lg:col-span-3 flex flex-col items-center gap-[12px] p-1 md:p-2  duration-500 rounded-md ">
                 <Image
                   alt=""
                   src="/icons/enjoy/check.svg"
@@ -97,7 +92,7 @@ const Enjoy = () => {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>
@@ -106,3 +101,9 @@ const Enjoy = () => {
 };
 
 export default Enjoy;
+/* 
+motion.div
+              variants={opaciVariants}
+              initial="hidden"
+              whileInView="show"
+*/

@@ -4,7 +4,7 @@ import TripPlaces from "./TripPlaces";
 import TripContent from "./TripContent";
 import TripLocationsSlider from "./TripLocationsSlider";
 
-const ProgramSummary = () => {
+const ProgramSummary = ({isProgramTravel}) => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const ProgramSummary = () => {
       ) : (
         <TripPlaces />
       )}
-      <TripContent />
+      {isProgramTravel && <TripContent />}
     </div>
   );
 };

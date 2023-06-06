@@ -3,9 +3,16 @@ import React, {useEffect, useState} from "react";
 
 const backendHost = process.env.NEXT_PUBLIC_BACKEND_HOST;
 
-const imgs = ["pro-1.png", "pro-2.png", "pro-3.png", "pro-4.png", "pro-5.png"];
+const imgs = [
+  "pro-1.png",
+  "pro-2.png",
+  "pro-3.png",
+  "pro-4.png",
+  "pro-5.png",
+  "GalleryOzngol.jpg",
+];
 
-const ProgramPics = () => {
+const ProgramPics = ({isProgramTravel}) => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [midScreen, setIsMidScreen] = useState(false);
 
@@ -22,7 +29,18 @@ const ProgramPics = () => {
   return (
     <div className="py-[10px] md:py-[20px]">
       <div className="bigbox relative">
-        {isSmallScreen ? (
+        {!isProgramTravel ? (
+          <div className="grid grid-cols-12 grid-rows-4 gap-4 md:h-[476px]">
+            <div className="col-span-12 md:col-span-12 row-span-4 h-[520px] sm:h-[476px] md:h-auto relative">
+              <Image
+                src={`/images/programs/${imgs[5]}`}
+                alt=""
+                className="object-cover rounded-[12px] hover:opacity-[0.9]"
+                fill
+              />
+            </div>
+          </div>
+        ) : isSmallScreen ? (
           <div className="grid grid-cols-12 grid-rows-4 gap-4 md:h-[476px]">
             <div className="col-span-12 md:col-span-6 row-span-4 h-[520px] sm:h-[300px] md:h-auto relative">
               <Image

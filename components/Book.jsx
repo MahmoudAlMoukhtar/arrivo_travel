@@ -43,12 +43,7 @@ const Book = () => {
       <div className="wrapper">
         <div className="flex flex-col gap-[28px] md:max-w-[897px] md:mx-auto">
           {/* first box */}
-          <motion.div
-            variants={animateVariants}
-            initial="hidden"
-            whileInView="show"
-            className="p-[16px] shadow-md rounded-lg"
-          >
+          <div className="p-[16px] shadow-md rounded-lg">
             <div className="flex flex-col md:flex-row gap-[20px]">
               <div className="flex-1 flex flex-col gap-[8px] md:gap-[13px] h-[68px]">
                 <h6 className="text-[14px]">إختر المدينة</h6>
@@ -136,7 +131,7 @@ const Book = () => {
                 <span className="text-[16px] font-bold-500">إحجز مكانك</span>
               </button>
             </div>
-          </motion.div>
+          </div>
 
           {/* common searches */}
           <div className="flex flex-col gap-[8px]">
@@ -164,3 +159,9 @@ const SearchedItem = ({item}) => {
     </div>
   );
 };
+/* 
+motion.div
+            variants={animateVariants}
+            initial="hidden"
+            whileInView="show"
+*/
