@@ -6,30 +6,28 @@ const useTravelFilters = (filters, data) => {
   useEffect(() => {
     let filtered = data;
 
-    if (filters.longTimeTravel !== undefined) {
-      filtered = filtered.filter(
-        item => item.longTimeTravel === filters.longTimeTravel
-      );
+    if (filters.days !== undefined) {
+      filtered = filtered.filter(item => item.longTimeTravel <= filters.days);
     }
 
     if (filters.numberPersons !== undefined) {
       filtered = filtered.filter(
-        item => item.numberPersons === filters.numberPersons
+        item =>
+          item.persons.from >= filters.numberPersons.minSize &&
+          item.persons.to <= filters.numberPersons.maxSize
       );
     }
 
     if (filters.priceRange !== undefined) {
       filtered = filtered.filter(
         item =>
-          item.price >= filters.priceRange[0] &&
-          item.price <= filters.priceRange[1]
+          item.price >= filters.priceRange.minPrice &&
+          item.price <= filters.priceRange.maxPrice
       );
     }
 
     if (filters.typeTravel !== undefined) {
-      filtered = filtered.filter(
-        item => item.typeTravel === filters.typeTravel
-      );
+      filtered = filtered.filter(item => item.typeTravel == filters.typeTravel);
     }
 
     setFilteredData(filtered);
