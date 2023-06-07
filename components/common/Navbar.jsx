@@ -157,7 +157,7 @@ const Navbar = () => {
                         />
                       </div>
                       <Link
-                        href={"/"}
+                        href="/our-services?service=programs"
                         className="font-bold-600 text-[16px]  group-hover:text-orange duration-300"
                       >
                         برامج سياحية
@@ -189,7 +189,7 @@ const Navbar = () => {
                         />
                       </div>
                       <Link
-                        href={"/"}
+                        href="/our-services?service=daily-trips"
                         className="font-bold-600 text-[16px] group-hover:text-orange duration-300"
                       >
                         رحلات يومية
@@ -222,7 +222,7 @@ const Navbar = () => {
                         />
                       </div>
                       <Link
-                        href={"/"}
+                        href="/our-services?service=stay-places"
                         className="font-bold-600 text-[16px]  group-hover:text-orange duration-300"
                       >
                         حجز الإقامة
@@ -254,7 +254,7 @@ const Navbar = () => {
                         />
                       </div>
                       <Link
-                        href={"/"}
+                        href="/our-services?service=cars"
                         className="font-bold-600 text-[16px] group-hover:text-orange duration-300"
                       >
                         تأجير السيارات
