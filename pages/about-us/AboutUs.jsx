@@ -1,4 +1,5 @@
 import BlogShort from "../../components/BlogShort";
+import ContactShort from "../../components/ContactShort";
 import Enjoy from "../../components/Enjoy";
 import AboutUSBanner from "./AboutUSBanner";
 import AboutUsBrif from "./AboutUsBrif";
@@ -16,6 +17,7 @@ const AboutUs = () => {
       <AboutUsServices />
       <Enjoy />
       <BlogShort />
+      <ContactShort />
     </div>
   );
 };
