@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from "react";
 import BarButton from "./helpers/BarButton";
 
-const ProgramInfoBar = () => {
+const ProgramInfoBarDaily = () => {
   const programInfoRef = useRef(null);
   const [activeLink, setActiveLink] = useState("");
 
@@ -18,16 +18,25 @@ const ProgramInfoBar = () => {
         ? programElement.offsetTop - 300
         : 0;
 
-      const stayElement = document.getElementById("stay");
-      const stayOffsetTop = stayElement ? stayElement.offsetTop - 300 : 0;
+      const priceIncludeElement = document.getElementById("priceInclude");
+      const priceIncludeOffsetTop = priceIncludeElement
+        ? priceIncludeElement.offsetTop - 300
+        : 0;
+
+      const importantInfoElement = document.getElementById("importantInfo");
+      const importantInfoOffsetTop = importantInfoElement
+        ? importantInfoElement.offsetTop - 300
+        : 0;
+
+      const typiesCarsElement = document.getElementById("typiesCars");
+      const typiesCarsOffsetTop = typiesCarsElement
+        ? typiesCarsElement.offsetTop - 300
+        : 0;
 
       const ratingsElement = document.getElementById("ratings");
       const ratingsOffsetTop = ratingsElement
         ? ratingsElement.offsetTop - 300
         : 0;
-
-      const termsElement = document.getElementById("terms");
-      const termsOffsetTop = termsElement ? termsElement.offsetTop - 300 : 0;
 
       const faqElement = document.getElementById("faq");
       const faqOffsetTop = faqElement ? faqElement.offsetTop - 300 : 0;
@@ -35,29 +44,34 @@ const ProgramInfoBar = () => {
       // Update the active link based on the current scroll position
       if (
         window.pageYOffset >= summaryOffsetTop &&
-        window.pageYOffset < programOffsetTop
+        window.pageYOffset < priceIncludeOffsetTop
       ) {
         setActiveLink("summary");
       } else if (
+        window.pageYOffset >= priceIncludeOffsetTop &&
+        window.pageYOffset < programOffsetTop
+      ) {
+        setActiveLink("priceInclude");
+      } else if (
         window.pageYOffset >= programOffsetTop &&
-        window.pageYOffset < stayOffsetTop
+        window.pageYOffset < importantInfoOffsetTop
       ) {
         setActiveLink("program");
       } else if (
-        window.pageYOffset >= stayOffsetTop &&
+        window.pageYOffset >= importantInfoOffsetTop &&
+        window.pageYOffset < typiesCarsOffsetTop
+      ) {
+        setActiveLink("importantInfo");
+      } else if (
+        window.pageYOffset >= typiesCarsOffsetTop &&
         window.pageYOffset < ratingsOffsetTop
       ) {
-        setActiveLink("stay");
+        setActiveLink("typiesCars");
       } else if (
         window.pageYOffset >= ratingsOffsetTop &&
-        window.pageYOffset < termsOffsetTop
-      ) {
-        setActiveLink("ratings");
-      } else if (
-        window.pageYOffset >= termsOffsetTop &&
         window.pageYOffset < faqOffsetTop
       ) {
-        setActiveLink("terms");
+        setActiveLink("ratings");
       } else if (window.pageYOffset >= faqOffsetTop) {
         setActiveLink("faq");
       }
@@ -83,28 +97,35 @@ const ProgramInfoBar = () => {
           active={activeLink === "summary"}
         />
         <BarButton
+          id="priceInclude"
+          name="priceInclude"
+          text="السعر يشمل"
+          active={activeLink === "priceInclude"}
+        />
+        <BarButton
           id="program"
           name="program"
           text="برنامج الرحلة"
           active={activeLink === "program"}
         />
+
         <BarButton
-          id="stay"
-          name="stay"
-          text="الإقامة"
-          active={activeLink === "stay"}
+          id="importantInfo"
+          name="importantInfo"
+          text="معلومات مهمة"
+          active={activeLink === "importantInfo"}
+        />
+        <BarButton
+          id="typiesCars"
+          name="typiesCars"
+          text="أنواع السيارات"
+          active={activeLink === "typiesCars"}
         />
         <BarButton
           id="ratings"
           name="ratings"
           text="تقييمات العملاء"
           active={activeLink === "ratings"}
-        />
-        <BarButton
-          id="terms"
-          name="terms"
-          text="شروط و أحكام"
-          active={activeLink === "terms"}
         />
         <BarButton
           id="faq"
@@ -117,4 +138,4 @@ const ProgramInfoBar = () => {
   );
 };
 
-export default ProgramInfoBar;
+export default ProgramInfoBarDaily;

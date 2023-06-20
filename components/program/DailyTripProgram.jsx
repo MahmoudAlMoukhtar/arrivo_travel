@@ -117,39 +117,47 @@ const Activite = ({a, i}) => {
 const DailyTripProgram = ({dailyTripProgram}) => {
   const {activities, programTrip} = dailyTripProgram;
   return (
-    <div className="flex items-start justify-start gap-[44px]">
-      <div
-        id="program"
-        className="flex flex-col gap-[20px] mb-[40px] md:mb-[50px]"
-      >
-        <div className="flex items-center gap-x-[8px]">
-          <Image
-            alt=""
-            src="/icons/map.png"
-            height={24}
-            width={24}
-            className="shrink-0"
-          />
-          <h2 className="text-[20px] font-bold">برنامج الرحلة :</h2>
-        </div>
-        <div className="flex flex-col items-start gap-[12px]">
-          {programTrip.map((p, i) => (
-            <StationTrip p={p} i={i} key={i} programTrip={programTrip} />
-          ))}
-        </div>
+    <div className="flex flex-col gap-[28px]">
+      <div className="flex items-center gap-x-[8px]">
+        <Image
+          alt=""
+          src="/icons/map.png"
+          height={24}
+          width={24}
+          className="shrink-0"
+        />
+        <h2 className="text-[24px] sm:text-[28px] lg:text-[36px] font-bold">
+          برنامج الرحلة :
+        </h2>
       </div>
-      <div
-        id="activity"
-        className="flex flex-col gap-[20px] mb-[40px] md:mb-[50px]"
-      >
-        <div className="flex items-center gap-x-[8px]">
-          <Image alt="" src="/icons/info.png" height={24} width={24} />
-          <h2 className="text-[20px] font-bold">الأنشطة خلال الرحلة :</h2>
+
+      <div className="flex items-start justify-start gap-[44px]">
+        <div
+          id="program"
+          className="flex flex-col gap-[20px] mb-[40px] md:mb-[50px]"
+        >
+          <h2 className="text-[20px] font-bold">برنامج الرحلة :</h2>
+          <div className="flex flex-col items-start gap-[12px]">
+            {programTrip.map((p, i) => (
+              <StationTrip p={p} i={i} key={i} programTrip={programTrip} />
+            ))}
+          </div>
         </div>
-        <div className="flex flex-col items-start gap-[12px]">
-          {activities.map((a, i) => (
-            <Activite a={a} i={i} key={i} programTrip={programTrip} />
-          ))}
+        <div
+          id="activity"
+          className="flex flex-col gap-[20px] mb-[40px] md:mb-[50px]"
+        >
+          <div className="flex flex-col gap-[4px]">
+            <h2 className="text-[20px] font-bold">الأنشطة خلال الرحلة :</h2>
+            <p className="text-[#F08631] text-[12px]">
+              أنشطة يمكن فعلها خلال الرحلة
+            </p>
+          </div>
+          <div className="flex flex-col items-start gap-[12px]">
+            {activities.map((a, i) => (
+              <Activite a={a} i={i} key={i} programTrip={programTrip} />
+            ))}
+          </div>
         </div>
       </div>
     </div>

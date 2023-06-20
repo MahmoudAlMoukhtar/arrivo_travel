@@ -15,7 +15,10 @@ const cars = [
 
 const ProgramCars = () => {
   return (
-    <div className="flex flex-col gap-[20px] mb-[40px] md:mb-[50px]">
+    <div
+      id="typiesCars"
+      className="flex flex-col gap-[20px] mb-[40px] md:mb-[50px]"
+    >
       <div className="flex flex-col gap-[28px]">
         <div className="flex items-center gap-x-[8px]">
           <div>
@@ -50,7 +53,9 @@ const ProgramCars = () => {
             </svg>
           </div>
 
-          <h2 className="text-[24px] font-bold">أنواع السيارات:</h2>
+          <h2 className="text-[24px] sm:text-[28px] lg:text-[36px] font-bold">
+            أنواع السيارات:
+          </h2>
         </div>
         <p className="text-[#636973]">
           السيارات متوفرين بحجمين بـ 8 مقاعد أو 14 مقعد إلى 19 مقعد. و ستكون

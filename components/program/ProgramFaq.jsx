@@ -71,7 +71,7 @@ const ProgramFaq = () => {
   return (
     <div
       id="faq"
-      className="flex flex-col gap-[20px] mb-[40px] md:mb-[50px] mt-[48px]"
+      className="flex flex-col gap-[20px] mb-[40px] md:mb-[50px] mt-[24px]"
     >
       <div className="flex items-center gap-x-[8px]">
         <svg
