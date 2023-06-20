@@ -4,24 +4,47 @@ import Link from "next/link";
 const countries = [
   {
     img: "Background-4.jpg",
+    titleAr: "طرابزون",
     title: "TRABZAON",
+    slug: "trabzaon",
+    banner: "/images/programs/Tourism  programmes/Large/Background.jpg",
+    mdBanner: "/images/programs/Tourism  programmes/Medium/Background.jpg",
   },
 
   {
     img: "Background-3.jpg",
+    titleAr: "اسطنبول",
     title: "ISTANBUL",
+    slug: "istanbul",
+    banner: "/images/programs/Tourism  programmes/Large/Background.jpg",
+    smBanner: "/images/programs/Tourism  programmes/Small/Background.jpg",
   },
   {
     img: "Background-2.jpg",
+    titleAr: "ريزا",
     title: "RIZE",
+    slug: "rize",
+    banner: "/images/programs/Tourism  programmes/Large/Background.jpg",
+    mdBanner: "/images/programs/Tourism  programmes/Medium/Background.jpg",
+    smBanner: "/images/programs/Tourism  programmes/Small/Background.jpg",
   },
   {
     img: "Background-1.jpg",
+    titleAr: "أناضول",
     title: "ANADOLU",
+    slug: "anadolu",
+    banner: "/images/programs/Tourism  programmes/Large/Background.jpg",
+    mdBanner: "/images/programs/Tourism  programmes/Medium/Background.jpg",
+    smBanner: "/images/programs/Tourism  programmes/Small/Background.jpg",
   },
   {
     img: "Background.jpg",
+    titleAr: "دينيز",
     title: "EGE-DENIZ",
+    slug: "ege-deniz",
+    banner: "/images/programs/Tourism  programmes/Large/Background.jpg",
+    mdBanner: "/images/programs/Tourism  programmes/Medium/Background.jpg",
+    smBanner: "/images/programs/Tourism  programmes/Small/Background.jpg",
   },
 ];
 
@@ -44,7 +67,11 @@ const TouristDestinations = () => {
       <div className="overflow-x-scroll scrollbar-hide">
         <div className="flex gap-[16px] justify-center items-center">
           {countries.map((c, i) => (
-            <Link key={i} href={"/"} className="rounded-[20px] shadow-md">
+            <Link
+              key={i}
+              href={`/travels-programs?type=programs&country=${c.slug}`}
+              className="rounded-[20px] shadow-md"
+            >
               <div className=" h-[160px] w-[160px] lg:h-[232px] lg:w-[224px] relative">
                 <Image
                   alt=""
