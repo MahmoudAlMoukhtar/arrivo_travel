@@ -32,23 +32,23 @@ const AboutUSBanner = () => {
         <div className="grid grid-cols-12 grid-rows-4 gap-4 md:h-[364px]">
           <div className="col-span-12 md:col-span-12 row-span-4 h-[364px] relative">
             <Image
-              src="/images/programs/programs-banner-sm.jpg"
+              src="/images/About us/Small/Background.jpg"
               alt=""
               className="relative sm:hidden"
               fill
             />
             <Image
-              src="/images/About us/Large/Background.jpg"
+              src="/images/About us/Medium/Background.jpg"
               alt=""
-              className="relative hidden sm:block"
+              className="relative hidden sm:block md:hidden"
               fill
             />
-            {/* <Image
-              src="/images/programs/programs-banner-sm.jpg"
+            <Image
+              src="/images/About us/Large/Background.jpg"
               alt=""
-              className="relative"
+              className="relative hidden md:block"
               fill
-            /> */}
+            />
             <div
               className="absolute inset-0 bg-gradient-to-b from-transparent to-white"
               style={{
