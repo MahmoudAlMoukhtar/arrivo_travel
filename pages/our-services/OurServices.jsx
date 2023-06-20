@@ -19,8 +19,9 @@ const OurServices = () => {
   return (
     <div>
       <ServiceBanner service={selectedService} />
-      <div className="wrapper">
+      <div className="wrapper pt-[80px]">
         <Service
+          service={service}
           imageSrc={selectedService.service.imageSrc}
           preTitle={selectedService.service.preTitle}
           title={selectedService.service.title}
