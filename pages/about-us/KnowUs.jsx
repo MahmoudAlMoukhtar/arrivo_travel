@@ -47,7 +47,7 @@ const KnowUs = () => {
                   height={44}
                   width={44}
                 />
-                <div className="w-[285px] lg:w-auto flex flex-col md:items-center">
+                <div className=" md:w-[285px] lg:w-auto flex flex-col md:items-center">
                   <h4 className="font-bold-600 text-[28px]">الرسالة</h4>
                   <p className="text-[14px] text-grey md:text-center">
                     ولأننا نسعى لراحتكم وتمتعكم برحلات فريدة نقدم لكم مجموعة من
@@ -64,7 +64,7 @@ const KnowUs = () => {
                   height={44}
                   width={44}
                 />
-                <div className="w-[285px] lg:w-auto flex flex-col md:items-center">
+                <div className=" md:w-[285px] lg:w-auto flex flex-col md:items-center">
                   <h4 className="font-bold-600 text-[28px]">الرؤية</h4>
                   <p className="text-[14px] text-grey md:text-center">
                     ولأننا نسعى لراحتكم وتمتعكم برحلات فريدة نقدم لكم مجموعة من
@@ -81,7 +81,7 @@ const KnowUs = () => {
                   height={44}
                   width={44}
                 />
-                <div className="w-[285px] lg:w-auto flex flex-col md:items-center">
+                <div className=" md:w-[285px] lg:w-auto flex flex-col md:items-center">
                   <h4 className="font-bold-600 text-[28px]">القيم</h4>
                   <p className="text-[14px] text-grey md:text-center">
                     ولأننا نسعى لراحتكم وتمتعكم برحلات فريدة نقدم لكم مجموعة من
@@ -98,7 +98,7 @@ const KnowUs = () => {
                   height={44}
                   width={44}
                 />
-                <div className="w-[285px] lg:w-auto flex flex-col md:items-center">
+                <div className=" md:w-[285px] lg:w-auto flex flex-col md:items-center">
                   <h4 className="font-bold-600 text-[28px]">الأهداف</h4>
                   <p className="text-[14px] text-grey md:text-center">
                     ولأننا نسعى لراحتكم وتمتعكم برحلات فريدة نقدم لكم مجموعة من
