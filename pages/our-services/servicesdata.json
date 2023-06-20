@@ -30,7 +30,7 @@
             "slug": "cars",
             "title":"تأجير السيارات",
             "description":"تأجير سيارات مرن وآمن.",
-            "image":"/images/services/Programs/Large/Background.jpg",
+            "image":"/images/services/Cars Rent/Large/Background.jpg",
             "service":{
                 "imageSrc":"/images/About us/vector.jpg",
                 "preTitle":"استأجر وانت مطمن",
@@ -57,7 +57,7 @@
             "slug": "stay-places",
             "title":"حجز الاقامة",
             "description":"رحلات سياحية مبتكرة خصيصا لكم.",
-            "image":"/images/services/Programs/Large/Background.jpg",
+            "image":"/images/services/Reservations/Large/Background.jpg",
             "service":{
                 "imageSrc":"/images/About us/Image-1.jpg",
                 "preTitle":"احجز بضمان",
@@ -84,7 +84,7 @@
             "slug": "daily-trips",
             "title":"رحلات يومية",
             "description":"رحلات سياحية مبتكرة خصيصا لكم.",
-            "image":"/images/services/Programs/Large/Background.jpg"        ,
+            "image":"/images/services/Daily Trips/Large/Background.jpg"        ,
              "service":{
                 "imageSrc":"/images/About us/vector-1.jpg",
                 "preTitle":"سيارة بسائق",
