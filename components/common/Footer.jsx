@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import {motion} from "framer-motion";
 
 const fbLink = "";
 const igLink = "";
@@ -53,12 +52,12 @@ const Footer = () => {
                     الرئيسية
                   </span>
                 </Link>
-                <Link href="/">
+                <Link href="/about-us">
                   <span className="py-[4px] text-grey hover:text-orange duration-300 ease-in">
                     من نحن
                   </span>
                 </Link>
-                <Link href="/">
+                <Link href="/our-services?service=programs">
                   <span className="py-[4px] text-grey hover:text-orange duration-300 ease-in">
                     الخدمات
                   </span>
@@ -78,7 +77,7 @@ const Footer = () => {
             <div className="col-span-12 sm:col-span-6 md:col-span-4 flex flex-col gap-[8px]">
               <h4 className="text-[18px] font-bold-600 text-black">خدماتنا</h4>
               <div className="flex flex-col gap-[10px] text-[12px]">
-                <Link href="/">
+                <Link href="/travels-programs?type=programs">
                   <span className="py-[4px] text-grey hover:text-orange duration-300 ease-in">
                     البرامج السياحية
                   </span>
@@ -93,7 +92,7 @@ const Footer = () => {
                     سيارة مع سائق
                   </span>
                 </Link>
-                <Link href="/">
+                <Link href="/travels-programs?type=daily-trips">
                   <span className="py-[4px] text-grey hover:text-orange duration-300 ease-in">
                     الرحلات السياحية اليومية
                   </span>
@@ -124,7 +123,6 @@ const Footer = () => {
                     تواصل معنا
                   </div>
                 </Link>
-                <Link href="/">
                   <div className="py-[4px] text-grey hover:text-orange duration-300 ease-in flex items-center gap-x-[4px]">
                     <Image
                       alt=""
@@ -134,8 +132,6 @@ const Footer = () => {
                     />
                     طرابزون, بيلتلي, انيت
                   </div>
-                </Link>
-                <Link href="/">
                   <div className="py-[4px] text-grey hover:text-orange duration-300 ease-in flex items-center gap-x-[4px]">
                     <Image
                       alt=""
@@ -145,8 +141,6 @@ const Footer = () => {
                     />
                     <span dir="ltr">+90 222 333 4444</span>
                   </div>
-                </Link>
-                <Link href="/">
                   <div className="py-[4px] text-grey hover:text-orange duration-300 ease-in flex items-center gap-x-[4px]">
                     <Image
                       alt=""
@@ -156,7 +150,6 @@ const Footer = () => {
                     />
                     support@arrivo-travel.com
                   </div>
-                </Link>
               </div>
             </div>
             <div className="col-span-12 md:col-span-6 flex flex-col gap-[16px]">
