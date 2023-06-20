@@ -1,53 +1,17 @@
 import {useEffect, useRef, useState} from "react";
 
-const FilterBar = ({filters, setFilters}) => {
-  const [days, setDays] = useState(20);
-  const [typiesChecked, setTypiesChecked] = useState({
-    privait: false,
-    groub: false,
-    withDriver: false,
-  });
-  const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(3500);
-  const [minSize, setMinSize] = useState(0);
-  const [maxSize, setMaxSize] = useState(0);
+const FilterBar = ({filteredWithoutType, filters, setFilters}) => {
+  const [activeFilter, setActiveFilter] = useState("");
 
-  const filtersRef = useRef(null);
-  const [isSticky, setIsSticky] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (
-        filtersRef.current &&
-        filtersRef.current.offsetTop <= window.pageYOffset
-      ) {
-        setIsSticky(true);
-      } else {
-        setIsSticky(false);
-      }
-      setIsSticky(true);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  const handleChecked = e => {
-    setTypiesChecked({
-      ...typiesChecked,
-      [e.target.id]: true,
-    });
+  const handleFilterChange = type => {
+    setActiveFilter(type);
+    // update filters using setFilters function
+    setFilters(prevFilters => ({...prevFilters, typeTravel: type}));
   };
-
   const handleDaysChange = event => {
-    setDays(event.target.value);
     setFilters({...filters, days: parseInt(event.target.value)});
   };
   const handleMaxPriceChange = event => {
-    setMaxPrice(event.target.value);
     setFilters({
       ...filters,
       priceRange: {
@@ -57,7 +21,6 @@ const FilterBar = ({filters, setFilters}) => {
     });
   };
   const handleMinPriceChange = event => {
-    setMinPrice(event.target.value);
     setFilters({
       ...filters,
       priceRange: {
@@ -67,7 +30,6 @@ const FilterBar = ({filters, setFilters}) => {
     });
   };
   const handleMaxSizeChange = event => {
-    setMaxSize(event.target.value);
     setFilters({
       ...filters,
       numberPersons: {
@@ -77,7 +39,6 @@ const FilterBar = ({filters, setFilters}) => {
     });
   };
   const handleMinSizeChange = event => {
-    setMinSize(event.target.value);
     setFilters({
       ...filters,
       numberPersons: {
@@ -86,11 +47,19 @@ const FilterBar = ({filters, setFilters}) => {
       },
     });
   };
+
+  const groubTripsCount = filteredWithoutType.filter(
+    t => t.subType === "groub"
+  ).length;
+  const privaitTripsCount = filteredWithoutType.filter(
+    t => t.subType === "privait"
+  ).length;
+  const withDriverTripsCount = filteredWithoutType.filter(
+    t => t.subType === "withDriver"
+  ).length;
+
   return (
-    <div
-      className="flex flex-col gap-[20px] sticky top-0 left-0 sm:static bg-[#fff] z-[9999]"
-      ref={filtersRef}
-    >
+    <div className="flex flex-col gap-[20px] sticky top-0 left-0 sm:static bg-[#fff] z-[9999]">
       <h4 className="text-[20px] font-bold">بحث متقدم</h4>
       <section id="filters" className="flex flex-col gap-[24px]">
         <div id="filterTime" className="flex flex-col gap-[40px]">
@@ -101,12 +70,12 @@ const FilterBar = ({filters, setFilters}) => {
               className="bg-[#d6d9df] appearance-none w-full outline-none h-[4px]"
               min={1}
               max={20}
-              value={days}
+              value={filters.days}
               onChange={handleDaysChange}
               style={{
                 background: `linear-gradient(to left, #F08631 ${
-                  (days / 20) * 100
-                }%, #d6d9df ${(days / 20) * 100}% 100%) no-repeat`,
+                  (filters.days / 20) * 100
+                }%, #d6d9df ${(filters.days / 20) * 100}% 100%) no-repeat`,
                 backgroundSize: "100% 100%",
               }}
             />
@@ -125,7 +94,7 @@ const FilterBar = ({filters, setFilters}) => {
                     handleDaysChange(e);
                   }
                 }}
-                value={days}
+                value={filters.days}
               />
             </div>
           </div>
@@ -138,60 +107,47 @@ const FilterBar = ({filters, setFilters}) => {
               <div className="flex justify-between items-center">
                 <div className="flex items-center gap-[12px]">
                   <button
-                    checked={typiesChecked.groub}
+                    checked={activeFilter === "groub"}
                     id="groub"
                     className={`w-[16px] h-[16px] border-[1px] border-[#98A2B3] rounded-[50%] ${
-                      typiesChecked.groub && "border-[4px] border-[#F08631]"
+                      activeFilter === "groub" &&
+                      "border-[4px] border-[#F08631]"
                     }`}
-                    onClick={() =>
-                      setTypiesChecked({
-                        ...typiesChecked,
-                        groub: !typiesChecked.groub,
-                      })
-                    }
+                    onClick={() => handleFilterChange("groub")}
                   />
                   <label className="text-[12px]">رحلة جماعية</label>
                 </div>
-                <span className="text-[12px]">210</span>
+                <span className="text-[12px]">{groubTripsCount}</span>
               </div>
               <div className="flex justify-between items-center">
                 <div className="flex items-center gap-[12px]">
                   <button
-                    checked={typiesChecked.privait}
+                    checked={activeFilter === "privait"}
                     id="privait"
-                    onClick={() =>
-                      setTypiesChecked({
-                        ...typiesChecked,
-                        privait: !typiesChecked.privait,
-                      })
-                    }
+                    onClick={() => handleFilterChange("privait")}
                     className={`w-[16px] h-[16px] border-[1px] border-[#98A2B3] rounded-[50%] ${
-                      typiesChecked.privait && "border-[4px] border-[#F08631]"
+                      activeFilter === "privait" &&
+                      "border-[4px] border-[#F08631]"
                     }`}
                   />
                   <label className="text-[12px]">رحلة خاصة</label>
                 </div>
-                <span className="text-[12px]">145</span>
+                <span className="text-[12px]">{privaitTripsCount}</span>
               </div>
               <div className="flex justify-between items-center">
                 <div className="flex items-center gap-[12px]">
                   <button
-                    checked={typiesChecked.withDriver}
+                    checked={activeFilter === "withDriver"}
                     id="withDriver"
                     className={`w-[16px] h-[16px] border-[1px] border-[#98A2B3] rounded-[50%] ${
-                      typiesChecked.withDriver &&
+                      activeFilter === "withDriver" &&
                       "border-[4px] border-[#F08631]"
                     }`}
-                    onClick={() =>
-                      setTypiesChecked({
-                        ...typiesChecked,
-                        withDriver: !typiesChecked.withDriver,
-                      })
-                    }
+                    onClick={() => handleFilterChange("withDriver")}
                   />
                   <label className="text-[12px]">رحلة مع سائق</label>
                 </div>
-                <span className="text-[12px]">120</span>
+                <span className="text-[12px]">{withDriverTripsCount}</span>
               </div>
             </div>
           </div>
@@ -205,13 +161,13 @@ const FilterBar = ({filters, setFilters}) => {
                 className="bg-[#d6d9df] appearance-none w-full outline-none h-[4px]"
                 min={1000}
                 max={3500}
-                value={minPrice}
+                value={filters.priceRange.minPrice}
                 onChange={handleMinPriceChange}
                 style={{
                   background: `linear-gradient(to left, #d6d9df ${
-                    ((minPrice - 1000) / (3500 - 1000)) * 100
+                    ((filters.priceRange.minPrice - 1000) / (3500 - 1000)) * 100
                   }%, #F08631 ${
-                    ((minPrice - 1000) / (3500 - 1000)) * 100
+                    ((filters.priceRange.minPrice - 1000) / (3500 - 1000)) * 100
                   }% 100%) no-repeat`,
                   backgroundSize: "100% 100%",
                 }}
@@ -221,13 +177,13 @@ const FilterBar = ({filters, setFilters}) => {
                 className="bg-[#d6d9df] appearance-none w-full outline-none h-[4px]"
                 min={3500}
                 max={5000}
-                value={maxPrice}
+                value={filters.priceRange.maxPrice}
                 onChange={handleMaxPriceChange}
                 style={{
                   background: `linear-gradient(to left, #F08631 ${
-                    ((maxPrice - 3500) / (5000 - 3500)) * 100
+                    ((filters.priceRange.maxPrice - 3500) / (5000 - 3500)) * 100
                   }%, #d6d9df ${
-                    ((maxPrice - 3500) / (5000 - 3500)) * 100
+                    ((filters.priceRange.maxPrice - 3500) / (5000 - 3500)) * 100
                   }% 100%) no-repeat`,
                   backgroundSize: "100% 100%",
                 }}
@@ -248,7 +204,7 @@ const FilterBar = ({filters, setFilters}) => {
                     handleMinPriceChange(e);
                   }
                 }}
-                value={minPrice}
+                value={filters.priceRange.minPrice}
               />
             </div>
             <div className="flex flex-col gap-[4px]">
@@ -262,7 +218,7 @@ const FilterBar = ({filters, setFilters}) => {
                     handleMaxPriceChange(e);
                   }
                 }}
-                value={maxPrice}
+                value={filters.priceRange.maxPrice}
               />
             </div>
           </div>
@@ -276,13 +232,13 @@ const FilterBar = ({filters, setFilters}) => {
                 className="bg-[#d6d9df] appearance-none w-full outline-none h-[4px]"
                 min={1}
                 max={4}
-                value={minSize}
+                value={filters.numberPersons.minSize}
                 onChange={handleMinSizeChange}
                 style={{
                   background: `linear-gradient(to left, #d6d9df ${
-                    ((minSize - 1) / (4 - 1)) * 100
+                    ((filters.numberPersons.minSize - 1) / (4 - 1)) * 100
                   }%, #F08631 ${
-                    ((minSize - 1) / (4 - 1)) * 100
+                    ((filters.numberPersons.minSize - 1) / (4 - 1)) * 100
                   }% 100%) no-repeat`,
                   backgroundSize: "100% 100%",
                 }}
@@ -292,13 +248,13 @@ const FilterBar = ({filters, setFilters}) => {
                 className="bg-[#d6d9df] appearance-none w-full outline-none h-[4px]"
                 min={4}
                 max={7}
-                value={maxSize}
+                value={filters.numberPersons.maxSize}
                 onChange={handleMaxSizeChange}
                 style={{
                   background: `linear-gradient(to left, #F08631 ${
-                    ((maxSize - 4) / (7 - 4)) * 100
+                    ((filters.numberPersons.maxSize - 4) / (7 - 4)) * 100
                   }%, #d6d9df ${
-                    ((maxSize - 4) / (7 - 4)) * 100
+                    ((filters.numberPersons.maxSize - 4) / (7 - 4)) * 100
                   }% 100%) no-repeat`,
                   backgroundSize: "100% 100%",
                 }}
@@ -321,7 +277,7 @@ const FilterBar = ({filters, setFilters}) => {
                     handleMinSizeChange(e);
                   }
                 }}
-                value={minSize}
+                value={filters.numberPersons.minSize}
               />
             </div>
             <div className="flex flex-col gap-[4px]">
@@ -335,11 +291,14 @@ const FilterBar = ({filters, setFilters}) => {
                     handleMaxSizeChange(e);
                   }
                 }}
-                value={maxSize}
+                value={filters.numberPersons.maxSize}
               />
             </div>
           </div>
         </div>
+        <button className="bg-[#F08631] py-[14px] px-[20px] rounded-[8px] text-white w-full sm:hidden">
+          تطبيق
+        </button>
       </section>
     </div>
   );

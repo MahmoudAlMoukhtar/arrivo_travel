@@ -6,7 +6,7 @@ import Image from "next/image";
 const PersonsBar = ({monthsTrip, selectedNumberOfPeople, onSelect}) => {
   //console.log(selectedNumberOfPeople);
   return (
-    <div className="mt-[32px] px-2 w-fit md:mx-auto">
+    <div className="px-2 w-fit md:mx-auto">
       <div className="overflow-x-scroll scrollbar-hide">
         <div className="flex bg-orange p-[4px] rounded-[40px]">
           {monthsTrip.map((m, i) => (
@@ -117,7 +117,7 @@ const TimingsAndPrices = () => {
   return (
     <div className="py-[56px]">
       <div className="wrapper">
-        <div className="flex flex-col items-center gap-[30px]">
+        <div className="flex flex-col items-center gap-[40px]">
           <Link
             href={"javascript:history.back()"}
             className="w-full text-end text-[#475467] flex justify-end gap-[8px]"
@@ -125,8 +125,9 @@ const TimingsAndPrices = () => {
             رجوع
             <Image src="/icons/arrow.png" height={20} width={20} alt="/" />
           </Link>
-          <BreadCrumb breadcrumbs={breadcrumbs} />
-          <h2 className=" text-[24px] sm:text-[36px] md:text-[56px] lg:[48px] font-bold-600">
+
+          <BreadCrumb breadcrumbs={breadcrumbs} center={true} />
+          <h2 className="hidden sm:block text-[24px] sm:text-[36px] md:text-[56px] lg:[48px] font-bold-600">
             المواعيد والأسعار
           </h2>
           <PersonsBar
@@ -138,7 +139,7 @@ const TimingsAndPrices = () => {
             <div className="w-full flex flex-col lg:px-20">
               {selectedNumberOfPeople.datesMonths.map((month, index) => (
                 <div key={index}>
-                  <h3 className="bg-[#F4F7FD] p-[16px] font-bold">
+                  <h3 className="bg-[#F4F7FD] p-[16px] font-bold text-[12px] sm:text-[16px]">
                     {month.monthN}
                   </h3>
                   <ul>
@@ -150,11 +151,13 @@ const TimingsAndPrices = () => {
                         }}
                         key={index}
                       >
-                        <span className="w-1/3">{d.day}</span>
-                        <span className="w-1/3 text-[20px] font-bold">
+                        <span className="w-1/3 text-[12px] sm:text-[16px]">
+                          {d.day}
+                        </span>
+                        <span className="w-1/3 text-[14px] sm:text-[20px] font-bold">
                           ${d.price}
                         </span>
-                        <button className="w-[140px] py-[14px] px-[20px] text-[#F08631] border-[1px] border-[#F08631] rounded-[32px] duration-200 hover:bg-[#F08631] hover:text-white">
+                        <button className="  sm:w-[140px] py-[8px] px-[12px] sm:py-[14px] sm:px-[20px] text-[#F08631] border-[1px] border-[#F08631] rounded-[32px] duration-200 hover:bg-[#F08631] hover:text-white text-[12px] sm:text-[16px]">
                           إتصل للحجز
                         </button>
                       </li>

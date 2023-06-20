@@ -1,0 +1,16 @@
+[
+        {
+            "slug": "programs",
+            "title":"البرامج سياحية",          
+            "image":"/images/programs/BackgroundProgramsBanner.jpg"           
+        },
+        {
+            "slug": "country",            
+            "image":"/images/programs/BackgroundProgramsBanner.jpg"           
+        },
+        {
+            "slug": "daily-trips",
+            "title":"رحلات يومية",
+            "image":"/images/programs/One Day Trip/Large/Background.jpg"    
+        }
+]

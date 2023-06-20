@@ -69,7 +69,11 @@ const Tour = ({tour, createPersonsArabic}) => {
             <p className="text-[12px] text-grey">{formattedStations}</p>
             <div className="flex gap-x-[4px] items-center text-[12px] text-grey">
               <Image alt="" src="/icons/daily/car.svg" height={20} width={20} />
-              رحلة خاصة
+              {tour.subType === "withDriver"
+                ? "مع سائق"
+                : tour.subType === "groub"
+                ? "رحلة جماعية"
+                : "رحلة خاصة"}
             </div>
           </div>
           {/* second part */}

@@ -1,7 +1,12 @@
 import {useEffect, useState} from "react";
 import Tour from "./Tour";
 import {motion} from "framer-motion";
-const PaginationPrograms = ({data: programs, showFilters, setShowFilters}) => {
+const PaginationPrograms = ({
+  data: programs,
+  showFilters,
+  setShowFilters,
+  openModal,
+}) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [programsPerPage, setProgramsPerPage] = useState(9);
   const indexOfLastProgram = currentPage * programsPerPage;
@@ -91,7 +96,7 @@ const PaginationPrograms = ({data: programs, showFilters, setShowFilters}) => {
       <div className="flex items-center justify-between">
         <div className="flex items-center justify-center gap-[4px] text-[12px] text-[#475467] sm:hidden">
           <svg
-            onClick={() => setShowFilters(!showFilters)}
+            onClick={openModal}
             className="cursor-pointer"
             width="24"
             height="24"

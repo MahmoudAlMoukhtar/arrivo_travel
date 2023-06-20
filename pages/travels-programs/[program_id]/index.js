@@ -1,10 +1,11 @@
 import Head from "next/head";
-import React from "react";
+import React, {useState} from "react";
 import Offer from "../../../components/sub/Offer";
 import Navbar from "../../../components/common/Navbar";
 import BreadCrumb from "../../../components/BreadCrumb";
 import Program from "../../../components/Program";
 import Footer from "../../../components/common/Footer";
+import Modal from "react-modal";
 
 export async function getServerSideProps({params}) {
   const {program_id} = params;
@@ -13,11 +14,20 @@ export async function getServerSideProps({params}) {
 }
 
 const ProgramPage = ({type}) => {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
   const breadcrumbs = [
     {name: "الصفحة الرئيسية", path: "/"},
     {
       name: "البرامج السياحية",
-      path: "/travels-programs",
+      path: "/travels-programs?type=programs",
     },
     {name: "الشمال التركي", path: "/travels-programs/program"},
   ];
@@ -39,7 +49,12 @@ const ProgramPage = ({type}) => {
         <div className="mt-[30px] md:mt-[50px]">
           <BreadCrumb breadcrumbs={breadcrumbs} />
         </div>
-        <Program type={type} />
+        <Program
+          type={type}
+          openModal={openModal}
+          modalIsOpen={modalIsOpen}
+          closeModal={closeModal}
+        />
         {/* <SimilarOffers /> */}
       </main>
 
