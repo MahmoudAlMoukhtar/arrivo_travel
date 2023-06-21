@@ -16,7 +16,7 @@ const ContctUs = () => {
   const [value, setValue] = useState();
 
   return (
-    <div className="wrapper">
+    <div className="wrapper px-4 sm:px-0">
       <div className="grid grid-cols-12 items-start justify-start gap-[20px]">
         <div className="col-span-12 md:col-span-6 lg:col-span-6">
           <div className="flex justify-between items-center">
@@ -29,7 +29,7 @@ const ContctUs = () => {
               </h2>
             </div>
           </div>
-          <form>
+          <form className="flex flex-col gap-4">
             <Input
               label={"الاسم الأول"}
               placeholder={"الاسم الأول"}
@@ -108,7 +108,7 @@ const ContctUs = () => {
               placeholder={"نص الرسالة ...."}
               errorMessage={"رسالة خطاء"}
             />
-            <button className="text-white bg-orange py-[14px] px-[20px] rounded-[8px] text-[16px] font-bold-500 border border-orange">
+            <button className="w-[130px] text-white bg-orange py-[14px] px-[20px] rounded-[8px] text-[16px] font-bold-500 border border-orange">
               أرسل الرسالة
             </button>
           </form>
