@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import {useRouter} from "next/router";
+import {useEffect} from "react";
 
 const countries = [
   {
@@ -61,6 +62,35 @@ const ProgramsBanner = ({selectedType}) => {
     mdBannerBackgroun = selecteCountry.mdBanner;
     smBannerBackgroun = selecteCountry.smBanner;
   }
+
+  useEffect(() => {
+    setTimeout(() => {
+      document
+        .querySelector(".dir1")
+        .classList.add("animate__animated", "animate__flash");
+    }, 400);
+    setTimeout(() => {
+      document
+        .querySelector(".dir2")
+        .classList.add("animate__animated", "animate__flash");
+    }, 600);
+    setTimeout(() => {
+      document
+        .querySelector(".dir3")
+        .classList.add("animate__animated", "animate__flash");
+    }, 800);
+    setTimeout(() => {
+      document
+        .querySelector(".dir4")
+        .classList.add("animate__animated", "animate__flash");
+    }, 1000);
+    setTimeout(() => {
+      document
+        .querySelector(".dir5")
+        .classList.add("animate__animated", "animate__flash");
+    }, 1200);
+  }, []);
+
   return (
     <div className="">
       <div className="bigbox relative">
@@ -120,13 +150,13 @@ const ProgramsBanner = ({selectedType}) => {
         </div>
       </div>
       {!country && (
-        <div className="overflow-x-scroll scrollbar-hide translate-y-[-200px]">
+        <div className="overflow-x-scroll scrollbar-hide translate-y-[-200px] ">
           <div className="flex gap-[16px] justify-center items-center">
             {countries.map((c, i) => (
               <Link
                 key={i}
                 href={`/travels-programs?type=programs&country=${c.slug}`}
-                className="rounded-[20px] shadow-md"
+                className={`dir${i + 1} rounded-[20px] shadow-md`}
               >
                 <div className=" h-[160px] w-[160px] lg:h-[232px] lg:w-[224px] relative">
                   <Image
