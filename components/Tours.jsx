@@ -4,6 +4,7 @@ import Image from "next/image";
 import useProgramFilter from "../hooks/useProgramFilter";
 import {motion} from "framer-motion";
 import Link from "next/link";
+import PrevTitle from "./PrevTitle";
 
 const Tour = ({tour, createPersonsArabic}) => {
   const displayedStations = tour.tripStations.slice(0, 2); // Display only the first two stations
@@ -39,19 +40,6 @@ const Tour = ({tour, createPersonsArabic}) => {
           <div className="flex flex-col gap-[8px]">
             <div className="flex justify-between items-center">
               <h6 className="font-bold-600 text-[16px]">{tour.title}</h6>
-              {/* <div className="flex gap-x-[4px] text-[12px] items-center text-grey">
-                          <Image
-                            alt=""
-                            src="/icons/star.svg"
-                            height={20}
-                            width={20}
-                          />
-                          <span>{tour.rating.avg}</span>
-                          <span>.</span>
-                          <span>
-                            <span>{tour.rating.count}</span> تقييم
-                          </span>
-                        </div> */}
             </div>
             <p className="text-[12px] text-grey">{formattedStations}</p>
             <div className="flex gap-x-[4px] items-center text-[12px] text-grey">
@@ -123,7 +111,7 @@ const Tours = () => {
       opacity: 1,
       translateY: 0,
       transition: {
-        delay: 0.7,
+        delay: 0.4,
         duration: 0.4,
       },
     },
@@ -137,9 +125,7 @@ const Tours = () => {
         <div className="wrapper">
           <div className="flex flex-col gap-y-[16px] items-center justify-center">
             <div className="flex flex-col items-center gap-[6px]">
-              <p className="text-orange font-bold-500 text-[16px]">
-                سيارة مع سائق
-              </p>
+              <PrevTitle prevTitle={"سيارة مع سائق"} />
               <h2 className="text-[28px] md:text-[36px] font-bold-600">
                 الرحلات السياحية
               </h2>
@@ -170,7 +156,10 @@ const Tours = () => {
             />
           ))}
         </motion.div>
-        <div className="w-full mt-4 flex items-center justify-center">
+        <Link
+          href={"/travels-programs?type=programs"}
+          className="w-full mt-4 flex items-center justify-center"
+        >
           <button
             onMouseOver={() => setArrowWhite(true)}
             onMouseOut={() => setArrowWhite(false)}
@@ -202,44 +191,10 @@ const Tours = () => {
               />
             </svg>
           </button>
-        </div>
+        </Link>
       </div>
     </div>
   );
 };
 
 export default Tours;
-/* 
-motion.div
-          variants={animateVariants}
-          initial="hidden"
-          whileInView="show"
-*/
-/* 
- const animateVariants = {
-     hidden: {
-       opacity: 0,
-       translateY: -30,
-     },
-     show: {
-       opacity: 1,
-       translateY: 0,
-       transition: {
-         delay: 0.7,
-         duration: 0.4,
-       },
-     },
-   };
-*/
-/* 
-<div className="mt-8 flex overflow-x-scroll scrollbar-hide pb-3 sm:flex-none sm:grid sm:grid-cols-12 gap-[12px]">
-          {firstSix.map((tour, i) => (
-            <Tour
-              key={i}
-              tour={tour}
-              createPersonsArabic={createPersonsArabic}
-            />
-          ))}
-          
-        </div>
-*/

@@ -3,6 +3,7 @@ import SlickSlider from "./sub/SlickSlider";
 import Image from "next/image";
 import {motion} from "framer-motion";
 import Link from "next/link";
+import PrevTitle from "./PrevTitle";
 
 const destins = [
   {
@@ -167,7 +168,8 @@ const DailyDests = () => {
       <div className="wrapper">
         <div className="flex justify-between items-center">
           <div className="flex flex-col gap-[4px]">
-            <p className="text-orange font-bold-500 text-[16px]">رحلات يومية</p>
+            <PrevTitle prevTitle={"رحلات يومية"} />
+
             <motion.h2
               variants={titleVariants}
               initial="hidden"
@@ -182,13 +184,14 @@ const DailyDests = () => {
           <SlickSlider settings={settings}>
             {destins.map((dest, i) => (
               <Link
-                href={`/travels-programs/${dest._id}`}
+                href={`/travels-programs/daily`}
                 key={i}
                 className="mb-4 scale-x-[-1] sm:scale-x-[1]"
               >
                 <div
                   dir="rtl"
-                  className="relative shadow-md flex flex-col bg-white rounded-[12px] mx-[5px] lg:mx-[10px]"
+                  className="relative flex flex-col bg-white rounded-[12px] mx-[5px] lg:mx-[10px]"
+                  style={{boxShadow: "0px 4px 8px rgba(91, 116, 130, 0.08)"}}
                 >
                   <div className="relative h-[245px] w-full">
                     <Image

@@ -3,6 +3,7 @@ import SlickSlider from "./sub/SlickSlider";
 import Image from "next/image";
 import ViewRatings from "./sub/ViewRating";
 import RevsImgs from "./reviews/RevsImgs";
+import PrevTitle from "./PrevTitle";
 
 const backendHost = process.env.NEXT_PUBLIC_BACKEND_HOST;
 
@@ -54,7 +55,7 @@ const Reviews = () => {
     <div className="py-[80px] bg-[#F5F8FB]">
       <div className="wrapper">
         <div className="flex flex-col gap-[4px]">
-          <p className="text-orange font-bold-500 text-[16px]">عملاء سعداء</p>
+          <PrevTitle prevTitle={"عملاء سعداء"} />
           <h2 className="text-[24px] sm:text-[48px] md:text-[36px] font-bold-600">
             غير مقتنع؟ اسمع <br className="hidden sm:block" /> من عملائنا
           </h2>

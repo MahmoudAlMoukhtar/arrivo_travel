@@ -4,6 +4,7 @@ import {useG} from "../context/OurContext";
 
 import {motion} from "framer-motion";
 import Link from "next/link";
+import PrevTitle from "./PrevTitle";
 
 const imgVariants = {
   hidden: {
@@ -59,14 +60,25 @@ const Services = () => {
           </motion.div>
           <div className="head flex flex-col gap-[20px] ">
             <div className="relative sm:w-fit">
-              <p className="text-orange font-bold-500 text-[16px] ">
-                أهم خدماتنا
-              </p>
+              <PrevTitle prevTitle={"أهم خدماتنا"} />
               <h2 className="font-bold-600 text-[28px] md:text-[36px]">
                 نقدم لكم خدمات مميزة
               </h2>
               <div className="absolute left-0 top-[-24px] sm:left-[-125px] sm:top-[1px] lg:top-[-30px] lg:left-[-166px]">
-                <div className="h-[45.37px] w-[93.22px] sm:h-[63.08px] sm:w-[129.62px] lg:h-[80.66px] lg:w-[165.74px] relative rotate-[60deg] sm:rotate-[16deg] lg:rotate-[20deg]">
+                <motion.div
+                  initial={{rotate: +45, x: -50, y: -40}}
+                  whileInView={{rotate: +0, x: 0, y: +40}}
+                  // use a spring transition with a bounce effect
+                  transition={{
+                    type: "spring",
+                    bounce: 0.5,
+                    duration: 2,
+                    delay: 0.2,
+                  }}
+                  // scale up the image when hovering over it
+                  whileHover={{scale: 1.2}}
+                  className="h-[45.37px] w-[93.22px] sm:h-[63.08px] sm:w-[129.62px] lg:h-[80.66px] lg:w-[165.74px] relative rotate-[60deg] sm:rotate-[16deg] lg:rotate-[20deg]"
+                >
                   <Image
                     alt=""
                     src={`/icons/designs/${
@@ -74,7 +86,7 @@ const Services = () => {
                     }`}
                     fill
                   />
-                </div>
+                </motion.div>
               </div>
             </div>
             <p className="text-[16px] text-grey md:w-[500px]">
@@ -103,7 +115,7 @@ const Services = () => {
                     />
                   </div>
                   <Link
-                    href={"/"}
+                    href={"/travels-programs?type=programs"}
                     className="font-bold-600 text-[20px] md:text-[28px] group-hover:text-orange duration-300"
                   >
                     برامج سياحية
@@ -135,7 +147,7 @@ const Services = () => {
                     />
                   </div>
                   <Link
-                    href={"/"}
+                    href={"/travels-programs?type=daily-trips"}
                     className="font-bold-600 text-[28px] group-hover:text-orange duration-300"
                   >
                     رحلات يومية
@@ -168,7 +180,7 @@ const Services = () => {
                     />
                   </div>
                   <Link
-                    href={"/"}
+                    href={"/our-services?service=stay-places"}
                     className="font-bold-600 text-[20px] md:text-[28px] group-hover:text-orange duration-300"
                   >
                     حجز الإقامة
@@ -200,7 +212,7 @@ const Services = () => {
                     />
                   </div>
                   <Link
-                    href={"/"}
+                    href={"/our-services?service=cars"}
                     className="font-bold-600 text-[28px] group-hover:text-orange duration-300"
                   >
                     تأجير السيارات

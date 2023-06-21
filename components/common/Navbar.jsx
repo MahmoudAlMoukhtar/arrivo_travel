@@ -4,7 +4,7 @@ import React, {useState} from "react";
 import SearchAndContact from "./NavbarHelpers/SearchAndContact";
 import Menu from "./NavbarHelpers/Menu";
 import Logo from "./NavbarHelpers/Logo";
-
+import {motion} from "framer-motion";
 const Navbar = ({openModal, slideIn, closeModal}) => {
   const [searchDrop, setSearchDrop] = useState(false);
   const [menuDrop, setMenuDrop] = useState(false);
@@ -22,6 +22,15 @@ const Navbar = ({openModal, slideIn, closeModal}) => {
 
   const handleShowDropdown = () => {
     setShowDropdown(!showDropdown);
+  };
+
+  const animateVariants = {
+    hidden: {translateY: -20, opacity: 0},
+    show: {
+      translateY: 0,
+      opacity: 1,
+      transition: {duration: 0.6},
+    },
   };
 
   return (
@@ -69,7 +78,7 @@ const Navbar = ({openModal, slideIn, closeModal}) => {
             {menuDrop ? (
               <button
                 onClick={() => {
-                  openModal();
+                  //openModal();
                   toggleMenu();
                 }}
                 className="oytline-none flex items-center justify-center"
@@ -84,7 +93,7 @@ const Navbar = ({openModal, slideIn, closeModal}) => {
             ) : (
               <button
                 onClick={() => {
-                  openModal();
+                  //openModal();
                   toggleMenu();
                 }}
                 className="oytline-none flex items-center justify-center"
@@ -96,7 +105,12 @@ const Navbar = ({openModal, slideIn, closeModal}) => {
         </nav>
         {/* menu drop */}
         {menuDrop && (
-          <div className="mb-3">
+          <motion.div
+            variants={animateVariants}
+            initial="hidden"
+            animate="show"
+            className="mb-3"
+          >
             <div className="flex flex-col gap-y-[16.5px] gap-x-2 md:gap-x-[20px] justify-between items-start md:hidden h-full">
               <Link href="/travels-programs?type=programs">
                 <div className="text-[#636973] text-[12px] xl:text-[14px] hover:text-deep flex items-center gap-[1px]">
@@ -140,12 +154,17 @@ const Navbar = ({openModal, slideIn, closeModal}) => {
                 </button>
               </Link>
             </div>
-          </div>
+          </motion.div>
         )}
 
         {/* search drop */}
         {searchDrop && (
-          <div className="mb-3">
+          <motion.div
+            variants={animateVariants}
+            initial="hidden"
+            animate="show"
+            className="mb-3"
+          >
             <div className="flex gap-x-2 items-center bg-white rounded-[40px] border border-[#C8CBD0] py-[10x] px-[10px] sm:pr-[16px] md:hidden">
               <input
                 type="text"
@@ -161,7 +180,7 @@ const Navbar = ({openModal, slideIn, closeModal}) => {
                 />
               </div>
             </div>
-          </div>
+          </motion.div>
         )}
       </div>
     </div>

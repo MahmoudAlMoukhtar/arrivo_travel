@@ -1,23 +1,6 @@
 import Image from "next/image";
 import React from "react";
 
-import {motion} from "framer-motion";
-
-const opaciVariants = {
-  hidden: {
-    opacity: 0,
-    y: 20,
-  },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: 0.2,
-      duration: 0.6,
-    },
-  },
-};
-
 const Enjoy = () => {
   return (
     <div className="">
@@ -29,7 +12,7 @@ const Enjoy = () => {
             </h1>
             <div className="grid grid-cols-12 gap-x-[25px] sm:gap-x-[20px] gap-y-[32px]">
               {/* one item */}
-              <div className=" col-span-12 sm:col-span-6 lg:col-span-3 flex flex-col items-center gap-[12px] p-1 md:p-2  duration-500 rounded-md ">
+              <div className="col-span-12 sm:col-span-6 lg:col-span-3 flex flex-col items-center gap-[12px] p-1 md:p-2  duration-500 rounded-md ">
                 <Image
                   alt=""
                   src="/icons/enjoy/support.svg"
@@ -101,9 +84,3 @@ const Enjoy = () => {
 };
 
 export default Enjoy;
-/* 
-motion.div
-              variants={opaciVariants}
-              initial="hidden"
-              whileInView="show"
-*/

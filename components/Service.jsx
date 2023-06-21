@@ -1,6 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const Service = ({
+  service,
   children,
   reverse,
   preTitle,
@@ -24,9 +26,14 @@ const Service = ({
         <div className="flex flex-col gap-4 lg:w-[590px]">
           <p className="text-[#475467]">{description}</p>
           {children}
-          <button className="bg-[#F08631] w-full md:w-[154px] py-[14px] px-[20px] text-white rounded-[8px]">
-            تصفح الحجوزات
-          </button>
+          {
+            <Link
+              href="/travels-programs?type=programs"
+              className="bg-[#F08631] w-full md:w-[154px] py-[14px] px-[20px] text-white rounded-[8px] text-center"
+            >
+              تصفح الحجوزات
+            </Link>
+          }
         </div>
       </div>
       <div>

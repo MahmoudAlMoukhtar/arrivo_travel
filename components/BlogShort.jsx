@@ -2,6 +2,7 @@ import Image from "next/image";
 import React, {useState} from "react";
 import SlickSlider from "./sub/SlickSlider";
 import {motion} from "framer-motion";
+import PrevTitle from "./PrevTitle";
 
 const posts = [
   {
@@ -30,35 +31,6 @@ const posts = [
   },
 ];
 
-const titleVariants = {
-  hidden: {
-    opacity: 0,
-    y: -20,
-  },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: 0.2,
-      duration: 0.6,
-    },
-  },
-};
-
-const animateVariants = {
-  hidden: {
-    opacity: 0,
-    translateY: -30,
-  },
-  show: {
-    opacity: 1,
-    translateY: 0,
-    transition: {
-      delay: 0.7,
-      duration: 0.8,
-    },
-  },
-};
 
 const Blog = ({post}) => {
   const [arrowWhite, setArrowWhite] = useState(false);
@@ -168,7 +140,7 @@ const BlogShort = () => {
       <div className="wrapper">
         <div className="flex flex-col gap-y-[16px] lg:items-center lg:justify-center">
           <div className="flex flex-col lg:items-center gap-[6px]">
-            <p className="text-orange font-bold-500 text-[16px]">المقالات</p>
+            <PrevTitle prevTitle={"المقالات"} />
             <h2 className="text-[28px] md:text-[36px] font-bold-600">
               أبرز المقالات
             </h2>
@@ -221,15 +193,3 @@ function SamplePrevArrow(props) {
     </div>
   );
 }
-/* 
-motion.h2
-              variants={titleVariants}
-              initial="hidden"
-              whileInView="show"
-*/
-/* 
-motion.div
-          variants={animateVariants}
-          initial="hidden"
-          whileInView="show"
-*/

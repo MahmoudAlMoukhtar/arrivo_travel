@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, {useRef, useState} from "react";
+import PrevTitle from "./PrevTitle";
 
 function SamplePrevArrow({className, style, onClick}) {
   return (
@@ -65,9 +66,7 @@ const Places = () => {
         <div className="flex flex-col lg:flex-row lg:items-center gap-[20px]">
           <div className="flex flex-col sm:flex-row lg:flex-col items-start md:items-center gap-[20px] lg:max-w-[387px]">
             <div className="relative sm:w-fit">
-              <p className="text-orange font-bold-500 text-[16px] ">
-                تصفح حسب الوجهة
-              </p>
+              <PrevTitle prevTitle={"تصفح حسب الوجهة"} />
               <h2 className="font-bold-600 text-[32px]  md:text-[48px]">
                 وجهات سياحية مميزة جدا
               </h2>
@@ -100,7 +99,7 @@ const Places = () => {
           >
             <div className="min-w-fit flex flex-row gap-x-[20px]">
               <Link
-                href={"/"}
+                href={`/travels-programs?type=programs&country=trabzaon`}
                 className="rounded-[20px] p-[16px] bg-white shadow-md"
               >
                 <div className="h-[368px] w-[311px] sm:h-[468px] sm:w-[387px] relative">
@@ -111,7 +110,7 @@ const Places = () => {
                 </div>
               </Link>
               <Link
-                href={"/"}
+                href={`/travels-programs?type=programs&country=istanbul`}
                 className="rounded-[20px] p-[16px] bg-white shadow-md"
               >
                 <div className="h-[368px] w-[311px] sm:h-[468px] sm:w-[387px] relative">

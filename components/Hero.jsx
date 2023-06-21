@@ -1,84 +1,38 @@
 import Image from "next/image";
-import React from "react";
+import React, {useEffect} from "react";
 import {useG} from "../context/OurContext";
 
 import {motion} from "framer-motion";
 import Link from "next/link";
-
-const animateVariants = {
-  hidden: {
-    opacity: 0,
-    translateY: -30,
-  },
-  show: {
-    opacity: 1,
-    translateY: 0,
-    transition: {
-      delay: 0.7,
-      duration: 0.8,
-    },
-  },
-};
-
-/* const containerVariants = {
-  hidden: {opacity: 0.8},
-  show: {
-    opacity: 1,
-    transition: {
-      delayChildren: 0.8,
-      staggerChildren: 0.5,
-      duration: 0.2,
-    },
-  },
-};
-
-const imageVariants = {
-  hidden: {translateX: "-1200px"},
-  show: {
-    translateX: 0,
-    transition: {type: "spring", stiffness: 30, duration: 0.6},
-  },
-}; */
-
-const buttonVariants = {
-  initial: {
-    scale: 0.9,
-    boxShadow: "0 0 0 rgba(0, 0, 0, 0.2)",
-  },
-  hover: {
-    scale: 1,
-    boxShadow: "0 6px 12px rgba(0, 0, 0, 0.2)",
-    backgroundColor: "#F6882F",
-    transition: {
-      duration: 0.3,
-      yoyo: Infinity,
-      ease: "easeInOut",
-    },
-  },
-  infinite: {
-    scale: [1, 1.03, 1],
-    backgroundColor: ["#F6882F", "#D45C00", "#B94700", "#F6882F"],
-    transition: {
-      delay: 1,
-      duration: 2.5,
-      repeat: Infinity,
-      ease: "linear",
-    },
-  },
-};
+import PrevTitle from "./PrevTitle";
 
 const Hero = () => {
   const {screenWidth} = useG();
+  useEffect(() => {
+    setTimeout(() => {
+      document
+        .querySelector(".card1")
+        .classList.add("animate__animated", "animate__jackInTheBox");
+    }, 200);
+    setTimeout(() => {
+      document
+        .querySelector(".card2")
+        .classList.add("animate__animated", "animate__jackInTheBox");
+    }, 300);
+    setTimeout(() => {
+      document
+        .querySelector(".card3")
+        .classList.add("animate__animated", "animate__jackInTheBox");
+    }, 400);
+  }, []);
   return (
-    <div className="py-[80px]">
+    <div className="test py-[80px]">
       <div className="wrapper">
         <div className="grid grid-cols-12 sm:grid-cols-5 gap-y-[80px] gap-x-[10px]">
           {/* klam */}
           <div className="col-span-12 sm:col-span-5 lg:col-span-2 flex flex-col items-center justify-center lg:items-start gap-[20px] md:max-w-[570px] md:mx-auto relative">
-            <div className="">
-              <p className="text-[16px] font-bold-500 text-center lg:text-right text-orange ">
-                إحجز رحلتك الآن
-              </p>
+            <div className="flex flex-col items-center lg:items-start">
+              <PrevTitle prevTitle={"إحجز رحلتك الآن"} />
               <h2 className="text-center lg:text-right text-[44px] md:text-[56px] font-bold-600">
                 إنضم إلى الرحلة وإستمتع بجمال تركيا
               </h2>
@@ -87,19 +41,29 @@ const Hero = () => {
               لتحقيق أقصى استفادة من مغامرتك ، ما عليك سوى المغادرة والذهاب إلى
               حيث تريد. نحن ننتظرك.
             </p>
-            <motion.button
-              variants={buttonVariants}
-              initial="initial"
-              whileHover="hover"
-              animate="infinite"
-              className="py-[12px] px-[20px] h-[48px] flex items-center justify-center  rounded-[8px] bg-orange font-bold-500 text-[16px] text-white gap-[8px]"
+            <Link
+              href={"/travels-programs?type=programs"}
+              className="testButton py-[12px] px-[20px] h-[48px] flex items-center justify-center  rounded-[8px] bg-orange hover:bg-[#B94700] transtion duration-200 font-bold-500 text-[16px] text-white gap-[8px]"
             >
               <span>إكتشف أحدث العروض</span>
               <Image src="/icons/go.svg" alt="arrivo" height={24} width={24} />
-            </motion.button>
+            </Link>
             {/* lawlawa */}
-            <div className="absolute bottom-[-25px] md:bottom-[-32px] lg:bottom-[-36px] left-0 md:left-[10px] lg:left-[130px]">
-              <div className="h-[47.35px] w-[97.3px] md:w-[165.74px] md:h-[80.66px] relative ">
+            <div className="absolute bottom-[-25px] md:bottom-[-32px] lg:bottom-[-36px] left-0 md:left-[10px] lg:left-[130px] ">
+              <motion.div
+                initial={{rotate: +45, x: -50, y: -20}}
+                whileInView={{rotate: +0, x: 0, y: 0}}
+                // use a spring transition with a bounce effect
+                transition={{
+                  type: "spring",
+                  bounce: 0.5,
+                  duration: 2,
+                  delay: 0.2,
+                }}
+                // scale up the image when hovering over it
+                whileHover={{scale: 1.2}}
+                className="h-[47.35px] w-[97.3px] md:w-[165.74px] md:h-[80.66px] relative "
+              >
                 <Image
                   src={`/icons/designs/${
                     screenWidth > 768 ? "big-arr.svg" : "arr.svg"
@@ -107,14 +71,14 @@ const Hero = () => {
                   alt="arrivo"
                   fill
                 />
-              </div>
+              </motion.div>
             </div>
           </div>
           {/* images */}
-          <div className="col-span-12 sm:col-span-5 lg:col-span-3 ">
+          <div className="cards col-span-12 sm:col-span-5 lg:col-span-3">
             <div className="grid grid-cols-12 gap-[12px]">
-              <motion.div className="order-2 md:order-1 col-span-6 sm:col-span-4 h-[226px] md:h-[342px] relative">
-                <Link href={"/"}>
+              <div className="card1 order-2 md:order-1 col-span-6 sm:col-span-4 h-[226px] md:h-[342px] relative hover:translate-y-[-10px] transition duration-[0.5s]">
+                <Link href={`/travels-programs?type=programs&country=trabzaon`}>
                   <Image
                     src="/images/hero/tabzon.png"
                     alt="trabzon"
@@ -127,9 +91,9 @@ const Hero = () => {
                     </span>
                   </div>
                 </Link>
-              </motion.div>
-              <motion.div className="order-1 md:order-2 col-span-12 sm:col-span-4 h-[175px] md:h-[342px] relative">
-                <Link href={"/"}>
+              </div>
+              <div className="card2 order-1 md:order-2 col-span-12 sm:col-span-4 h-[175px] md:h-[342px] relative hover:translate-y-[-10px] transition duration-[0.5s]">
+                <Link href={`/travels-programs?type=programs&country=rize`}>
                   <Image
                     src={`/images/hero/${
                       screenWidth > 768 ? "riza.png" : "riza-mob.png"
@@ -144,9 +108,9 @@ const Hero = () => {
                     </span>
                   </div>
                 </Link>
-              </motion.div>
-              <motion.div className="order-3 md:order-3 col-span-6 sm:col-span-4 h-[226px] md:h-[342px] relative">
-                <Link href={"/"}>
+              </div>
+              <div className="card3 order-3 md:order-3 col-span-6 sm:col-span-4 h-[226px] md:h-[342px] relative hover:translate-y-[-10px] transition duration-[0.5s]">
+                <Link href={`/travels-programs?type=programs&country=istanbul`}>
                   <Image
                     src="/images/hero/istab.png"
                     alt="istanbul"
@@ -159,7 +123,7 @@ const Hero = () => {
                     </span>
                   </div>
                 </Link>
-              </motion.div>
+              </div>
             </div>
           </div>
         </div>
@@ -169,16 +133,3 @@ const Hero = () => {
 };
 
 export default Hero;
-/* 
-motion.div
-            variants={animateVariants}
-            initial="hidden"
-            whileInView="show"
-*/
-
-/* 
-motion.div
-              variants={animateVariants}
-              initial="hidden"
-              whileInView="show"
-*/

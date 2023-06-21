@@ -4,6 +4,7 @@ import Image from "next/image";
 
 import {motion} from "framer-motion";
 import Link from "next/link";
+import PrevTitle from "./PrevTitle";
 
 const destins = [
   {
@@ -104,15 +105,15 @@ const Destinations = () => {
     // infinite: true,
     speed: 800,
     slidesToShow: 4,
-    slidesToScroll: 4,
+    slidesToScroll: 2,
     initialSlide: 0,
 
     // swipeToSlide: false,
 
     // fade: true,
     autoplay: true,
-    autoplaySpeed: 7500,
-    cssEase: "linear",
+    autoplaySpeed: 3000,
+    cssEase: "ease",
 
     // centerPadding: 30,
 
@@ -150,7 +151,6 @@ const Destinations = () => {
     ],
     // rtl: true,
   };
-
   const createPersonsArabic = persons => {
     const {from, to} = persons;
     let toReturn = "";
@@ -179,7 +179,8 @@ const Destinations = () => {
       <div className="wrapper">
         <div className="flex justify-between items-center">
           <div className="flex flex-col gap-[4px]">
-            <p className="text-orange font-bold-500 text-[16px]">عروض رائعة</p>
+            <PrevTitle prevTitle={"عروض رائعة"} />
+
             <motion.h2
               variants={titleVariants}
               initial="hidden"
@@ -197,8 +198,8 @@ const Destinations = () => {
           <SlickSlider settings={settings}>
             {destins.map((dest, i) => (
               <Link
-                href={`/travels-programs/${dest._id}`}
                 key={i}
+                href={`/travels-programs/program`}
                 className="mb-4 scale-x-[-1] sm:scale-x-[1]"
               >
                 <div

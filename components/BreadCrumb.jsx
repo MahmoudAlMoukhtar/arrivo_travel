@@ -2,11 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const BreadCrumb = ({breadcrumbs}) => {
+const BreadCrumb = ({breadcrumbs, center}) => {
   return (
-    <div className="">
-      <div className="wrapper">
-        <div className="flex items-center gap-[4px] text-[12px]">
+    <div className="w-full">
+      <div className="wrapper w-full">
+        <div
+          className={`flex ${
+            center ? "justify-center" : "justify-start"
+          } items-center gap-[4px] text-[12px] w-full`}
+        >
           {breadcrumbs.map((br, i) =>
             i === 0 ? (
               <div key={i} className="stage flex gap-[4px]">

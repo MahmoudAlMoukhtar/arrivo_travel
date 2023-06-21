@@ -19,7 +19,10 @@ const Menu = ({handleShowDropdown, showDropdown}) => {
   };
   return (
     <div className="hidden md:flex gap-x-4 md:gap-x-[20px] items-center relative  text-left">
-      <div
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        variants={serviceVariants}
         onBlur={handleShowDropdown}
         className={`absolute z-10 top-[45px] mt-2 right-[-200px]  lg:right-[-100px]   rounded-md bg-white shadow-lg p-[32px]  ${
           showDropdown ? "block" : "hidden"
@@ -68,15 +71,8 @@ const Menu = ({handleShowDropdown, showDropdown}) => {
               </div>
             </div>
           </div>
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            className="grid grid-cols-12 gap-y-[26px] gap-x-[31px]"
-          >
-            <motion.div
-              variants={serviceVariants}
-              className="col-span-12 flex flex-col"
-            >
+          <div className="grid grid-cols-12 gap-y-[26px] gap-x-[31px]">
+            <div className="col-span-12 flex flex-col">
               <div className="group cursor-pointer transition-all flex items-center gap-x-[20px] mb-2">
                 <div className="bg-white border-2 border-solid border-gray-700 service-shadow group-hover:border-orange group-hover:shadow-none rounded-md duration-300">
                   <Image
@@ -105,11 +101,8 @@ const Menu = ({handleShowDropdown, showDropdown}) => {
                 نقدم مغامرات ملهمة وتجارب مصممة بعناية لكل عميل، مع تخطيط متفوق
                 وتنظيم محكم لضمان تجربة سفر لا تُنسى.
               </p>
-            </motion.div>
-            <motion.div
-              variants={serviceVariants}
-              className="col-span-12 flex flex-col"
-            >
+            </div>
+            <div className="col-span-12 flex flex-col">
               <div className="group cursor-pointer transition-all flex items-center gap-x-[20px] mb-2">
                 <div className=" bg-white border-2 border-solid border-gray-700 service-shadow group-hover:border-orange group-hover:shadow-none rounded-md duration-300">
                   <Image
@@ -138,11 +131,8 @@ const Menu = ({handleShowDropdown, showDropdown}) => {
                 مكتشفة. مستشارون محترفون لتنظيم مسارات متناسقة توفر تجربة مريحة
                 وممتعة بأقل جهد ووقت.
               </p>
-            </motion.div>
-            <motion.div
-              variants={serviceVariants}
-              className="col-span-12  flex flex-col"
-            >
+            </div>
+            <div className="col-span-12  flex flex-col">
               <div className="group cursor-pointer transition-all flex items-center gap-x-[20px] mb-2">
                 <div className=" bg-white border-2 border-solid border-gray-700 service-shadow group-hover:border-orange group-hover:shadow-none rounded-md duration-300">
                   <Image
@@ -170,11 +160,8 @@ const Menu = ({handleShowDropdown, showDropdown}) => {
                 استمتع بإقامة مثالية من خبراء يوفرون اختيارات ملائمة ومتنوعة،
                 بأسعار تنافسية ومعرفة عميقة بأماكن الإقامة.
               </p>
-            </motion.div>
-            <motion.div
-              variants={serviceVariants}
-              className="col-span-12  flex flex-col"
-            >
+            </div>
+            <div className="col-span-12  flex flex-col">
               <div className="group cursor-pointer transition-all flex items-center gap-x-[20px] mb-2">
                 <div className=" bg-white border-2 border-solid border-gray-700 service-shadow group-hover:border-orange group-hover:shadow-none rounded-md duration-300">
                   <Image
@@ -202,10 +189,10 @@ const Menu = ({handleShowDropdown, showDropdown}) => {
                 تأجير سيارات مرن وآمن, اختيارات متنوعة، توصيل مريح، لتجربة سفر
                 لا مثيل لها.
               </p>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
-      </div>
+      </motion.div>
 
       <Link href="/travels-programs?type=programs">
         <div
