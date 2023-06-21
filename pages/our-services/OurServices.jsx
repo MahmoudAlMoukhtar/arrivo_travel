@@ -18,7 +18,7 @@ const OurServices = () => {
 
   return (
     <div>
-      <ServiceBanner service={selectedService} />
+      {selectedService.service && <ServiceBanner service={selectedService} />}
       <div className="wrapper pt-[80px]">
         <Service
           service={service}
