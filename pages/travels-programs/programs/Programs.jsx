@@ -8,7 +8,6 @@ import ReactModal from "react-modal";
 import FilterBar from "./programsMainBodyComponents/FilterBar";
 import {useEffect, useState} from "react";
 import useTravelFilters from "../../../hooks/useTravelFilters";
-import {motion} from "framer-motion";
 const Programs = ({data, openModal, modalIsOpen, closeModal, slideIn}) => {
   const router = useRouter();
   const {type, country} = router.query;
