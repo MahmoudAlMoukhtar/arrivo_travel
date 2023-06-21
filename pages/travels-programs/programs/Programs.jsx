@@ -10,7 +10,6 @@ import {useEffect, useState} from "react";
 import useTravelFilters from "../../../hooks/useTravelFilters";
 import {motion} from "framer-motion";
 const Programs = ({data, openModal, modalIsOpen, closeModal, slideIn}) => {
-
   const router = useRouter();
   const {type, country} = router.query;
   const selectedType = typiesdata.find(t => t.slug === type);
@@ -102,12 +101,15 @@ const Programs = ({data, openModal, modalIsOpen, closeModal, slideIn}) => {
             </button>
           </div>
 
-          <FilterBar
-            filteredWithType={filteredWithType}
-            filteredWithoutType={filteredWithoutType}
-            filters={filters}
-            setFilters={setFilters}
-          />
+          {/* Add null checks for filteredWithType and filteredWithoutType */}
+          {filteredWithType && filteredWithoutType && (
+            <FilterBar
+              filteredWithType={filteredWithType}
+              filteredWithoutType={filteredWithoutType}
+              filters={filters}
+              setFilters={setFilters}
+            />
+          )}
         </div>
       </ReactModal>
     </div>
