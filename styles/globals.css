@@ -146,3 +146,14 @@ width: 16px;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 88888;
 }
+
+
+.select-container {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.select-container.show {
+  opacity: 1;
+}
+
