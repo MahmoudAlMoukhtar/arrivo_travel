@@ -148,7 +148,7 @@ const Navbar = ({openModal, slideIn, closeModal}) => {
                   من نحن
                 </div>
               </Link>
-              <Link href="/contact" className="w-full">
+              <Link href="/contact-us" className="w-full">
                 <button className="outline-none text-[12px] text-orange py-[12px] px-[20px] border border-orange rounded-[8px] hover:bg-orange hover:text-white duration-300 ease-out w-full">
                   تواصل معنا
                 </button>
