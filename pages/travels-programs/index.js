@@ -3,7 +3,7 @@ import Offer from "../../components/sub/Offer";
 import Navbar from "../../components/common/Navbar";
 import Footer from "../../components/common/Footer";
 import Programs from "./programs/Programs";
-import {useEffect, useRef, useState} from "react";
+import {useState} from "react";
 
 export async function getStaticProps() {
   const url = "https://api.example.com/data";
@@ -448,7 +448,7 @@ const TravelsPrograms = ({data}) => {
         />
       </Head>
 
-      <main>
+      <main className="">
         <div className="hidden md:block">
           <Offer />
         </div>
