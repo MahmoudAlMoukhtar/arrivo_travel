@@ -1,7 +1,5 @@
 import Head from "next/head";
 import Navbar from "../components/common/Navbar";
-import {useRouter} from "next/router";
-import {useEffect} from "react";
 import Hero from "../components/Hero";
 import Enjoy from "../components/Enjoy";
 import Book from "../components/Book";
@@ -15,15 +13,7 @@ import Tours from "../components/Tours";
 import BlogShort from "../components/BlogShort";
 import ContactShort from "../components/ContactShort";
 import Footer from "../components/common/Footer";
-
-export default function Home() {
-  const router = useRouter();
-  useEffect(() => {
-    if (true) {
-      // router.push("/programs/id");
-    }
-  }, []);
-
+export default function Home({openModal, slideIn}) {
   return (
     <div className="overflow-hidden">
       <Head>
@@ -36,7 +26,7 @@ export default function Home() {
 
       <main>
         <Offer />
-        <Navbar />
+        <Navbar openModal={openModal} slideIn={slideIn} />
         <Hero />
         <Enjoy />
         <Book />
