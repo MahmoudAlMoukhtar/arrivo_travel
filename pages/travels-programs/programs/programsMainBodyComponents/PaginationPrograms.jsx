@@ -85,7 +85,7 @@ const PaginationPrograms = ({
       opacity: 1,
       translateY: 0,
       transition: {
-        delay: 0.7,
+        delay: 0.2,
         duration: 0.4,
       },
     },
