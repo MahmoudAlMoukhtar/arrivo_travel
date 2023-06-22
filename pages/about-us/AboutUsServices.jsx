@@ -59,7 +59,7 @@ const Services = () => {
         />
       </Service>
       <Service
-        imageSrc="/images/About us/vector.jpg"
+        imageSrc="/images/About us/car.jpg"
         preTitle={"استأجر وانت مطمن"}
         title="تأجير السيارات"
         description={`تأجير سيارات مرن وآمن, اختيارات متنوعة، توصيل مريح، لتجربة سفر لا مثيل لها.`}
@@ -78,7 +78,7 @@ const Services = () => {
         />
       </Service>
       <Service
-        imageSrc="/images/About us/vector-1.jpg"
+        imageSrc="/images/About us/daily.jpg"
         preTitle={"سيارة بسائق"}
         title="رحلات يومية"
         description={`رحلات سياحية مبتكرة: اكتشف جوانب مخفية من البلاد برفقة سائق محترف، بينما يضمن لك مستشارونا المتمرسون تنظيم مسارات مدروسة لرحلة مريحة وممتعة، كل ذلك بأقل جهد ووقت ممكن.`}
