@@ -1,9 +1,7 @@
 import BreadCrumb from "../../../components/BreadCrumb";
 import {useEffect, useState} from "react";
-import useTravelFilters from "../../../hooks/useTravelFilters";
 import FilterBar from "./programsMainBodyComponents/FilterBar";
 import PaginationPrograms from "./programsMainBodyComponents/PaginationPrograms";
-import BlogShort from "../../../components/BlogShort";
 
 const ProgramsMainBody = ({
   openModal,
@@ -44,7 +42,9 @@ const ProgramsMainBody = ({
         )}
       </div>
       <div className="col-span-12 md:col-span-8 xl:col-span-9">
-        <PaginationPrograms data={filteredWithType} openModal={openModal} />
+        {filteredWithType && (
+          <PaginationPrograms data={filteredWithType} openModal={openModal} />
+        )}
       </div>
     </div>
   );

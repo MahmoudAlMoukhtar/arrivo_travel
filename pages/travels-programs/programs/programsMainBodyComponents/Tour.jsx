@@ -2,27 +2,17 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Tour = ({tour, createPersonsArabic}) => {
-  const displayedStations = tour.tripStations.slice(0, 2); // Display only the first two stations
-
-  if (tour.tripStations.length > 2) {
-    displayedStations.push("والمزيد...");
+  if (!tour) {
+    return null;
   }
 
+  const displayedStations = tour.tripStations?.slice(0, 2) ?? []; // Display only the first two stations
+
+  if (tour.tripStations?.length > 2) {
+    displayedStations.push("والمزيد...");
+  }
   const formattedStations = displayedStations.join(" - "); // Join the stations separated by '-'
-  const animateVariants = {
-    hidden: {
-      opacity: 0,
-      translateY: -30,
-    },
-    show: {
-      opacity: 1,
-      translateY: 0,
-      transition: {
-        delay: 0.7,
-        duration: 0.4,
-      },
-    },
-  };
+
   return (
     <div className="min-w-[285px] col-span-12 sm:col-span-6  xl:col-span-4">
       <Link

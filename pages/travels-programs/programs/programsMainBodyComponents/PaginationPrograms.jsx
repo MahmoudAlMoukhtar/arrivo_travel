@@ -1,20 +1,13 @@
 import {useEffect, useState} from "react";
 import Tour from "./Tour";
 import {motion} from "framer-motion";
-const PaginationPrograms = ({
-  data: programs,
-  showFilters,
-  setShowFilters,
-  openModal,
-}) => {
+const PaginationPrograms = ({data: programs, openModal}) => {
+  // add a guard clause to check if the programs array exists
+
   const [currentPage, setCurrentPage] = useState(1);
   const [programsPerPage, setProgramsPerPage] = useState(9);
   const indexOfLastProgram = currentPage * programsPerPage;
   const indexOfFirstProgram = indexOfLastProgram - programsPerPage;
-  const currentPrograms = programs.slice(
-    indexOfFirstProgram,
-    indexOfLastProgram
-  );
 
   useEffect(() => {
     function handleResize() {
@@ -26,6 +19,15 @@ const PaginationPrograms = ({
     handleResize();
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+  if (!programs || !Array.isArray(programs)) {
+    return null;
+  }
+
+  const currentPrograms = programs.slice(
+    indexOfFirstProgram,
+    indexOfLastProgram
+  );
+
   const goToPreviousPage = () => {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);

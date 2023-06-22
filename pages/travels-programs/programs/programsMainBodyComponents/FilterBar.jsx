@@ -1,7 +1,11 @@
-import {useEffect, useRef, useState} from "react";
+import {useState} from "react";
 
 const FilterBar = ({filteredWithoutType, filters, setFilters}) => {
   const [activeFilter, setActiveFilter] = useState("");
+  // add a guard clause to check if the filters object exists
+  if (!filters) {
+    return null;
+  }
 
   const handleFilterChange = type => {
     setActiveFilter(type);

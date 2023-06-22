@@ -50,7 +50,7 @@ const countries = [
   },
 ];
 
-const ProgramsBanner = ({selectedType}) => {
+const ProgramsBanner = ({selectedType = {}}) => {
   const router = useRouter();
   const {type, country} = router.query;
   let bannerBackgroun = selectedType.image;
