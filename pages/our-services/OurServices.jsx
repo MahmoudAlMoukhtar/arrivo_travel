@@ -19,7 +19,7 @@ const OurServices = () => {
   return (
     <div>
       {selectedService.service && <ServiceBanner service={selectedService} />}
-      <div className="wrapper pt-[80px]">
+      <div className="wrapper sm:pt-[80px]">
         <Service
           service={service}
           imageSrc={selectedService.service.imageSrc}
