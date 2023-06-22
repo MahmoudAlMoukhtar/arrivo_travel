@@ -107,9 +107,7 @@ const DetailsStations = ({p}) => {
           <span className="h-[8px] w-[8px] bg-[#092F44] rounded-full mt-2 translate-x-[+2px]"></span>
           <h2 className="text-[14px] font-bold">{title}</h2>
         </div>
-        <p className="text-[12px] text-[#475467] pr-8 border-r-2 border-[#98A2B3]">
-          {details}
-        </p>
+        <p className="text-[12px] text-[#475467] pr-8">{details}</p>
       </div>
     );
   };
