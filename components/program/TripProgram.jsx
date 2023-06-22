@@ -181,11 +181,13 @@ const StationTrip = ({programDailyTrip, p, i}) => {
             <div
               style={{
                 position: "absolute",
-                top: "50%",
+                top: "60%",
                 left: "6px",
                 width: "2px",
                 backgroundColor: "#98A2B3",
-                height: `${nextProgramHeight}px`,
+                height: showDetailsTrip
+                  ? `${nextProgramHeight}px`
+                  : `${nextProgramHeight - 20}px`,
               }}
             />
           )}
