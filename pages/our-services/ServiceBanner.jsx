@@ -1,7 +1,12 @@
 import Image from "next/image";
 
 const ServiceBanner = ({service}) => {
-  const {title, description, image} = service;
+  if (!service) {
+    return null;
+  }
+
+  const {title, description, image} = service || {};
+
   return (
     <div className="">
       <div className="bigbox relative">
@@ -29,15 +34,19 @@ const ServiceBanner = ({service}) => {
             />
 
             <div
-              className="flex flex-col items-center absolute top-[40%] sm:top-[60%] left-[50%] w-full wrapper"
+              className="flex flex-col items-center absolute top-[40%] sm:top-[60%] left-[50%, -50%) w-full wrapper"
               style={{transform: "translate(-50%, -50%)"}}
             >
-              <h1 className="text-[32px] sm:text-[56px] flex flex-col items-center font-bold">
-                {title}
-              </h1>
-              <p className="text-[#475467] text-[14px] md:text-md text-center">
-                {description}
-              </p>
+              {title && (
+                <h1 className="text-[32px] sm:text-[56px] flex flex-col items-center font-bold">
+                  {title}
+                </h1>
+              )}
+              {description && (
+                <p className="text-[#475467] text-[14px] md:text-md text-center">
+                  {description}
+                </p>
+              )}
             </div>
           </div>
         </div>
