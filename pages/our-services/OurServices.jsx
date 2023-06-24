@@ -21,6 +21,7 @@ const OurServices = () => {
       {selectedService.service && <ServiceBanner service={selectedService} />}
       <div className="wrapper sm:pt-[80px]">
         <Service
+          url={selectedService.service.url}
           service={service}
           imageSrc={selectedService.service.imageSrc}
           preTitle={selectedService.service.preTitle}
