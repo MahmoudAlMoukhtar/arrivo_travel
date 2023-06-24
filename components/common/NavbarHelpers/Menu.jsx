@@ -3,7 +3,7 @@ import Link from "next/link";
 import {motion} from "framer-motion";
 import {useRouter} from "next/router";
 
-const Menu = ({handleShowDropdown, showDropdown}) => {
+const Menu = ({handleShowDropdown, showDropdown, setShowDropdown}) => {
   const router = useRouter();
   const isActive = path => {
     return router.pathname === path ? "text-orange hover:text-orange" : "";

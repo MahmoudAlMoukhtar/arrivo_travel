@@ -5,6 +5,7 @@ import SearchAndContact from "./NavbarHelpers/SearchAndContact";
 import Menu from "./NavbarHelpers/Menu";
 import Logo from "./NavbarHelpers/Logo";
 import {motion} from "framer-motion";
+
 const Navbar = ({openModal, slideIn, closeModal}) => {
   const [searchDrop, setSearchDrop] = useState(false);
   const [menuDrop, setMenuDrop] = useState(false);
@@ -40,6 +41,7 @@ const Navbar = ({openModal, slideIn, closeModal}) => {
           <Logo />
           {/* menu */}
           <Menu
+            setShowDropdown={setShowDropdown}
             handleShowDropdown={handleShowDropdown}
             showDropdown={showDropdown}
           />

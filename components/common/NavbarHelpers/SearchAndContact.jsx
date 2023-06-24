@@ -55,7 +55,7 @@ const SearchAndContact = () => {
     >
       <input
         type="text"
-        className="border-0 outline-none bg-transparent flex-1 text-[12px] xl:text-[16px] focus:invalid:border-pink-500 "
+        className="border-0 outline-none bg-transparent flex-1 text-[12px] xl:text-[16px]"
         placeholder="إلى أين تريد أن تذهب؟"
         onFocus={handleSearchFocus}
         onBlur={handleSearchBlur}

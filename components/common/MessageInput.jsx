@@ -7,7 +7,7 @@ const STATUS = {
   COMPLETED: "COMPLETED",
 };
 
-const MessageInput = ({label, placeholder, errorMessage, type}) => {
+const MessageInput = ({errorMessage, type}) => {
   //state management
   const [value, setValue] = useState("");
   const [invalid, setInvalid] = useState(false);
@@ -16,7 +16,7 @@ const MessageInput = ({label, placeholder, errorMessage, type}) => {
   const [touche, setTouche] = useState({});
   //Derived state
   const errors = getErrors(value);
-  const isValid = Object.keys(errors).length === 0;
+  //const isValid = Object.keys(errors).length === 0;
 
   function handleChange(e) {
     //e.persist();
@@ -31,8 +31,8 @@ const MessageInput = ({label, placeholder, errorMessage, type}) => {
   }
 
   function getErrors(value) {
-    let result = errorMessage;
-    if (!value) result = errorMessage;
+    let result = "رسالة خطاء";
+    if (!value) result = "رسالة خطاء";
     return result;
   }
 
@@ -45,7 +45,7 @@ const MessageInput = ({label, placeholder, errorMessage, type}) => {
           invalid ? "text-[#F04438]" : "text-[#3E444D]"
         }`}
       >
-        {invalid ? label + "*" : label}
+        {invalid ? "نص الرسالة" + "*" : "نص الرسالة"}
       </label>
       <textarea
         required
@@ -57,7 +57,7 @@ const MessageInput = ({label, placeholder, errorMessage, type}) => {
         className={`outline-none w-full border border-[#C8CBD0] rounded-[8px] py-[16px] px-[12px] text-[14px] placeholder:text-[14px] focus:border-[#F08631] focus:bg-orange/10 duration-300 valid:border-[#12B76A] ${
           invalid ? "invalid:border-[#F04438] invalid:text-[#F04438]" : ""
         }`}
-        placeholder={placeholder}
+        placeholder={"نص الرسالة ...."}
       />
       <p role="alert" className="text-[#F04438] text-[12px] ">
         {invalid && errors}
