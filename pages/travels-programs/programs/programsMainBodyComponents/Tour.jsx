@@ -14,7 +14,7 @@ const Tour = ({tour, createPersonsArabic}) => {
   const formattedStations = displayedStations.join(" - "); // Join the stations separated by '-'
 
   return (
-    <div className="min-w-[285px] col-span-12 sm:col-span-6  xl:col-span-4">
+    <div className="min-w-[285px]  col-span-12 sm:col-span-6  xl:col-span-4">
       <Link
         href={`/travels-programs/${tour._id}`}
         dir="rtl"
@@ -26,7 +26,7 @@ const Tour = ({tour, createPersonsArabic}) => {
       >
         <div className="relative h-[245px] w-full">
           <Image
-            alt=""
+            alt="trip"
             src={`/images/${tour.img}`}
             fill
             className="rounded-t-[12px]"
@@ -41,20 +41,23 @@ const Tour = ({tour, createPersonsArabic}) => {
           {/* first part */}
           <div className="flex flex-col gap-[8px]">
             <div className="flex justify-between items-center">
-              <h6 className="font-bold-600 text-[16px]">{tour.title}</h6>
+              <h6 className="font-bold-600 text-[16px]">
+                {tour.title.slice(0, 29)}
+                {tour.title.length > 29 && "..."}
+              </h6>
               {/* <div className="flex gap-x-[4px] text-[12px] items-center text-grey">
-                          <Image
-                            alt=""
-                            src="/icons/star.svg"
-                            height={20}
-                            width={20}
-                          />
-                          <span>{tour.rating.avg}</span>
-                          <span>.</span>
-                          <span>
-                            <span>{tour.rating.count}</span> تقييم
-                          </span>
-                        </div> */}
+                    <Image
+                      alt=""
+                      src="/icons/star.svg"
+                      height={20}
+                      width={20}
+                    />
+                    <span>{tour.rating.avg}</span>
+                    <span>.</span>
+                    <span>
+                      <span>{tour.rating.count}</span> تقييم
+                    </span>
+                  </div> */}
             </div>
             <p className="text-[12px] text-grey">{formattedStations}</p>
             <div className="flex gap-x-[4px] items-center text-[12px] text-grey">
