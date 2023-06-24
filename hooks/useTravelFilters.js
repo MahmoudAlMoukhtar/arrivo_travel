@@ -44,6 +44,9 @@ const useTravelFilters = (filters, data) => {
     if (filters.typeTravel !== undefined) {
       filtered = filtered.filter(item => item.subType === filters.typeTravel);
     }
+    if (filters.mainType !== undefined) {
+      filtered = filtered.filter(item => item.mainType === filters.mainType);
+    }
 
     if (filters.country !== undefined) {
       filtered = filtered.filter(item => item.country === filters.country);
