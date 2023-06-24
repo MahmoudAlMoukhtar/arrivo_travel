@@ -18,6 +18,7 @@ const Programs = ({data, openModal, modalIsOpen, closeModal, slideIn}) => {
     priceRange: {maxPrice: 5000, minPrice: 1000},
     country: country,
     typeTravel: undefined,
+    mainType: type,
   });
 
   const {filteredWithType, filteredWithoutType} = useTravelFilters(
@@ -79,30 +80,10 @@ const Programs = ({data, openModal, modalIsOpen, closeModal, slideIn}) => {
         style={customStyles}
       >
         <div className="flex flex-col gap-[40px] ">
-          <div className="flex items-center justify-between">
-            <h2 className="text-[24px] sm:text-[28px] font-bold">بحث متقدم</h2>
-            <button onClick={closeModal}>
-              <svg
-                width="32"
-                height="32"
-                viewBox="0 0 32 32"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M8 24L24 8M8 8L24 24"
-                  stroke="black"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </button>
-          </div>
-
           {/* Add null checks for filteredWithType and filteredWithoutType */}
           {filteredWithType && filteredWithoutType && (
             <FilterBar
+              closeModal={closeModal}
               filteredWithType={filteredWithType}
               filteredWithoutType={filteredWithoutType}
               filters={filters}
