@@ -6,6 +6,7 @@ import PhoneInput from "react-phone-number-input";
 import {useState} from "react";
 import Select from "../../components/common/Select";
 import MessageInput from "../../components/common/MessageInput";
+import PhonInput from "../../components/common/PhonInput";
 //import CalenderInput from "../../components/common/CalenderInput";
 
 const fbLink = "";
@@ -43,23 +44,11 @@ const ContctUs = () => {
               type={"email"}
             />
 
-            <div className="flex flex-col gap-[8px] ">
-              <label
-                htmlFor=""
-                className="font-bold-500 text-[12px] text-[#3E444D]"
-              >
-                رقم الهاتف
-              </label>
-              <PhoneInput
-                dir="ltr"
-                international
-                defaultCountry="TR"
-                className="outline-none focus:border-none w-full border border-[#C8CBD0] rounded-[8px] py-[16px] px-[12px] text-[14px] placeholder:text-[14px] focus-within:bg-orange/10 duration-300"
-                // value={value}
-                onChange={setValue}
-                placeholder="رقم الهاتف"
-              />
-            </div>
+            <PhonInput
+              label={"رقم الهاتف"}
+              placeholder={"رقم الهاتف"}
+              errorMessage={"رسالة خطاء"}
+            />
             <Input
               label={"عدد الكبار - ( أكبر من 06 سنوات )"}
               placeholder={"عدد الكبار"}
