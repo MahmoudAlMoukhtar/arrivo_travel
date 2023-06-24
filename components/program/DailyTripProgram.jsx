@@ -131,7 +131,7 @@ const DailyTripProgram = ({dailyTripProgram}) => {
         </h2>
       </div>
 
-      <div className="flex items-start justify-start gap-[44px]">
+      <div className="flex flex-col sm:flex-row items-start justify-start gap-[44px]">
         <div
           id="program"
           className="flex flex-col gap-[20px] mb-[40px] md:mb-[50px]"
