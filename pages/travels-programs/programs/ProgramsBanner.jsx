@@ -64,31 +64,20 @@ const ProgramsBanner = ({selectedType = {}}) => {
   }
 
   useEffect(() => {
-    setTimeout(() => {
-      document
-        .querySelector(".dir1")
-        .classList.add("animate__animated", "animate__flash");
-    }, 400);
-    setTimeout(() => {
-      document
-        .querySelector(".dir2")
-        .classList.add("animate__animated", "animate__flash");
-    }, 600);
-    setTimeout(() => {
-      document
-        .querySelector(".dir3")
-        .classList.add("animate__animated", "animate__flash");
-    }, 800);
-    setTimeout(() => {
-      document
-        .querySelector(".dir4")
-        .classList.add("animate__animated", "animate__flash");
-    }, 1000);
-    setTimeout(() => {
-      document
-        .querySelector(".dir5")
-        .classList.add("animate__animated", "animate__flash");
-    }, 1200);
+    const animateCards = (cardSelector, delay) => {
+      setTimeout(() => {
+        const element = document.querySelector(cardSelector);
+        if (element) {
+          element.classList.add("animate__animated", "animate__flipInY");
+        }
+      }, delay);
+    };
+
+    animateCards(".dir1", 0);
+    animateCards(".dir2", 0);
+    animateCards(".dir3", 0);
+    animateCards(".dir4", 0);
+    animateCards(".dir5", 0);
   }, []);
 
   return (
