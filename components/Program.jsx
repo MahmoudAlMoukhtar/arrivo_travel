@@ -74,7 +74,7 @@ const Program = ({type, openModal, modalIsOpen, closeModal}) => {
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
       width: shouldRenderMobileView ? "90%" : "675px",
-      height: shouldRenderMobileView ? "" : "656px",
+      height: shouldRenderMobileView ? "732px" : "656px",
       backgroundColor: "#fff",
       zIndex: 999999,
       position: "fixed",
@@ -196,7 +196,6 @@ const Program = ({type, openModal, modalIsOpen, closeModal}) => {
       <ProgramInfoBar />
     ) : (
       <ProgramInfoBarDaily />
-      
     );
 
   return (
