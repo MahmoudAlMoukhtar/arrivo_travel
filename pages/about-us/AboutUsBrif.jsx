@@ -1,5 +1,6 @@
 import Image from "next/image";
 import BreadCrumb from "../../components/BreadCrumb";
+import PrevTitle from "../../components/PrevTitle";
 
 const AboutUsBrif = () => {
   const breadcrumbs = [
@@ -15,7 +16,7 @@ const AboutUsBrif = () => {
         <div className="flex flex-col text-start items-start md:items-center lg:items-start md:text-center lg:text-start gap-[24px]">
           <BreadCrumb breadcrumbs={breadcrumbs} />
           <div className="flex flex-col gap-[4px]">
-            <p className="text-orange font-bold-500 text-[16px]">من نحن</p>
+            <PrevTitle prevTitle={"من نحن"} />
             <h2 className=" text-[24px] sm:text-[28px] md:text-[36px] lg:text-[48px] font-bold-600">
               شركة السلام للسياحية
             </h2>
