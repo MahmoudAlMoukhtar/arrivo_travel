@@ -16,11 +16,15 @@ const Tour = ({tour, createPersonsArabic}) => {
   const formattedStations = displayedStations.join(" - "); // Join the stations separated by '-'
 
   return (
-    <div className="min-w-[285px] sm:col-span-6 md:col-span-4 xl:col-span-3">
+    <div className="min-w-[285px]  sm:col-span-6 md:col-span-4 xl:col-span-3">
       <Link
         href={`/travels-programs/${tour._id}`}
         dir="rtl"
-        className="relative shadow-md flex flex-col bg-white rounded-[12px]"
+        className="relative flex flex-col bg-white rounded-[12px]"
+        style={{
+          boxShadow: "0px 4px 8px rgba(91, 116, 130, 0.08)",
+          border: "1px solid rgba(152, 162, 179, 0.25)",
+        }}
       >
         <div className="relative h-[245px] w-full">
           <Image
