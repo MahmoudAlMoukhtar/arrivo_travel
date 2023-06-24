@@ -8,7 +8,7 @@ const Offer = () => {
 
   return (
     view && (
-      <div className="bg-[#072F45]  text-white flex justify-between items-center gap-[12px] px-2 md:px-0">
+      <div className="bg-[#072739]  text-white flex justify-between items-center gap-[12px] px-2 md:px-0">
         <div className="hidden md:inline relative h-[64px] w-[64px] overflow-hidden">
           <Image
             alt="/"
