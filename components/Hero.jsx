@@ -9,22 +9,20 @@ import PrevTitle from "./PrevTitle";
 const Hero = () => {
   const {screenWidth} = useG();
   useEffect(() => {
-    setTimeout(() => {
-      document
-        .querySelector(".card1")
-        .classList.add("animate__animated", "animate__jackInTheBox");
-    }, 200);
-    setTimeout(() => {
-      document
-        .querySelector(".card2")
-        .classList.add("animate__animated", "animate__jackInTheBox");
-    }, 300);
-    setTimeout(() => {
-      document
-        .querySelector(".card3")
-        .classList.add("animate__animated", "animate__jackInTheBox");
-    }, 400);
+    const animateCards = (cardSelector, delay) => {
+      setTimeout(() => {
+        const element = document.querySelector(cardSelector);
+        if (element) {
+          element.classList.add("animate__animated", "animate__jackInTheBox");
+        }
+      }, delay);
+    };
+
+    animateCards(".card1", 200);
+    animateCards(".card2", 300);
+    animateCards(".card3", 400);
   }, []);
+
   return (
     <div className="test py-[80px]">
       <div className="wrapper">
@@ -41,13 +39,20 @@ const Hero = () => {
               لتحقيق أقصى استفادة من مغامرتك ، ما عليك سوى المغادرة والذهاب إلى
               حيث تريد. نحن ننتظرك.
             </p>
-            <Link
-              href={"/travels-programs?type=programs"}
-              className="testButton py-[12px] px-[20px] h-[48px] flex items-center justify-center  rounded-[8px] bg-orange hover:bg-[#B94700] transtion duration-200 font-bold-500 text-[16px] text-white gap-[8px]"
-            >
-              <span>إكتشف أحدث العروض</span>
-              <Image src="/icons/go.svg" alt="arrivo" height={24} width={24} />
-            </Link>
+            <motion.button whileHover={{scale: 1.1}} whileTap={{scale: 0.9}}>
+              <Link
+                href={"/travels-programs?type=programs"}
+                className="testButton py-[12px] px-[20px] h-[48px] flex items-center justify-center  rounded-[8px] bg-orange hover:bg-[#B94700] transtion duration-200 font-bold-500 text-[16px] text-white gap-[8px]"
+              >
+                <span>إكتشف أحدث العروض</span>
+                <Image
+                  src="/icons/go.svg"
+                  alt="arrivo"
+                  height={24}
+                  width={24}
+                />
+              </Link>
+            </motion.button>
             {/* lawlawa */}
             <div className="absolute bottom-[-25px] md:bottom-[-32px] lg:bottom-[-36px] left-0 md:left-[10px] lg:left-[130px] ">
               <motion.div
