@@ -5,9 +5,13 @@ import PhoneInput from "react-phone-number-input";
 import Input from "./common/Input";
 import Link from "next/link";
 import PrevTitle from "./PrevTitle";
-
+import {useRouter} from "next/router";
+import MessageInput from "./common/MessageInput";
+import {motion} from "framer-motion";
+import PhonInput from "./common/PhonInput";
 const ContactShort = () => {
   const [value, setValue] = useState();
+  const router = useRouter();
   return (
     <div className="py-[80px]">
       <div className="wrapper">
@@ -72,42 +76,21 @@ const ContactShort = () => {
                 type={"email"}
               />
 
-              <div className="flex flex-col gap-[8px] ">
-                <label
-                  htmlFor=""
-                  className="font-bold-500 text-[12px] text-[#3E444D]"
-                >
-                  رقم الهاتف
-                </label>
-                <PhoneInput
-                  dir="ltr"
-                  international
-                  defaultCountry="TR"
-                  className="outline-none focus:border-none w-full border border-[#C8CBD0] rounded-[8px] py-[16px] px-[12px] text-[14px] placeholder:text-[14px] focus-within:bg-orange/10 duration-300"
-                  // value={value}
-                  onChange={setValue}
-                  placeholder="رقم الهاتف"
-                />
-              </div>
+              <PhonInput
+                label={"رقم الهاتف"}
+                placeholder={"رقم الهاتف"}
+                errorMessage={"رسالة خطاء"}
+              />
 
-              <div className="flex flex-col gap-[8px]">
-                <label
-                  htmlFor=""
-                  className="font-bold-500 text-[12px] text-[#3E444D]"
-                >
-                  نص الرسالة
-                </label>
-                <textarea
-                  required
-                  rows={5}
-                  className="outline-none w-full border border-[#C8CBD0] rounded-[8px] py-[16px] px-[12px] text-[14px] placeholder:text-[14px] focus:bg-orange/10 duration-300"
-                  placeholder="البريد الالكتروني"
-                />
-              </div>
+              <MessageInput />
               <div className="flex gap-[12px] items-center mt-[8px]">
-                <button className="text-white bg-orange py-[14px] px-[20px] rounded-[8px] text-[16px] font-bold-500 border border-orange">
+                <motion.button
+                  whileHover={{scale: 1.1}}
+                  whileTap={{scale: 0.9}}
+                  className="text-white bg-orange py-[14px] px-[20px] rounded-[8px] text-[16px] font-bold-500 border border-orange hover:bg-[#B94700]"
+                >
                   أرسل الآن
-                </button>
+                </motion.button>
                 <span>أو</span>
                 <Link
                   href="/contact-us"
