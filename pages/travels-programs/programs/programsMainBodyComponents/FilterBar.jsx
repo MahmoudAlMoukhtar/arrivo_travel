@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-const FilterBar = ({filteredWithoutType, filters, setFilters}) => {
+const FilterBar = ({filteredWithoutType, filters, setFilters, closeModal}) => {
   const [activeFilter, setActiveFilter] = useState("");
   // add a guard clause to check if the filters object exists
   if (!filters) {
@@ -64,7 +64,29 @@ const FilterBar = ({filteredWithoutType, filters, setFilters}) => {
 
   return (
     <div className="flex flex-col gap-[20px] sticky top-0 left-0 sm:static bg-[#fff] z-[9999]">
-      <h4 className="text-[20px] font-bold">بحث متقدم</h4>
+      <div className="flex justify-between items-center">
+        <h4 className="text-[24px] sm:text-[28px] md:text-[20px] font-bold">
+          بحث متقدم
+        </h4>
+        <button onClick={closeModal} className="block sm:hidden">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8 24L24 8M8 8L24 24"
+              stroke="black"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
+
       <section id="filters" className="flex flex-col gap-[24px]">
         <div id="filterTime" className="flex flex-col gap-[40px]">
           <h5 className="text-[18px] text-[#344054] font-bold">مدة الرحلة</h5>
@@ -199,31 +221,41 @@ const FilterBar = ({filteredWithoutType, filters, setFilters}) => {
             </div>
             <div className="flex flex-col gap-[4px]">
               <label className="text-[12px] text-[#344054]">يبدأ من</label>
-              <input
-                type="number"
-                className="p-[14px] rounded-[8px] text-[12px] text-[#344054] border-[1px] border-[#98A2B3]"
-                placeholder="10"
-                onChange={e => {
-                  if (e.target.value >= 0) {
-                    handleMinPriceChange(e);
-                  }
-                }}
-                value={filters.priceRange.minPrice}
-              />
+              <div
+                className={`flex gap-x-2 justify-between items-center h-[48px] bg-white text-[#344054] p-[14px]  rounded-[8px] border-[1px] border-[#98A2B3] relative text-[12px] `}
+              >
+                <input
+                  type="number"
+                  className=" py-[14px] w-full appearance-none  outline-none"
+                  placeholder="10"
+                  onChange={e => {
+                    if (e.target.value >= 0) {
+                      handleMinPriceChange(e);
+                    }
+                  }}
+                  value={filters.priceRange.minPrice}
+                />
+                <span>$</span>
+              </div>
             </div>
             <div className="flex flex-col gap-[4px]">
               <label className="text-[12px] text-[#344054]">إلى</label>
-              <input
-                type="number"
-                className="p-[14px] rounded-[8px] text-[12px] text-[#344054] border-[1px] border-[#98A2B3]"
-                placeholder="10"
-                onChange={e => {
-                  if (e.target.value >= 0) {
-                    handleMaxPriceChange(e);
-                  }
-                }}
-                value={filters.priceRange.maxPrice}
-              />
+              <div
+                className={`flex gap-x-2 justify-between items-center h-[48px] bg-white text-[#344054] p-[14px]  rounded-[8px] border-[1px] border-[#98A2B3] relative text-[12px] `}
+              >
+                <input
+                  type="number"
+                  className=" py-[14px] w-full appearance-none  outline-none"
+                  placeholder="10"
+                  onChange={e => {
+                    if (e.target.value >= 0) {
+                      handleMaxPriceChange(e);
+                    }
+                  }}
+                  value={filters.priceRange.maxPrice}
+                />
+                <span>$</span>
+              </div>
             </div>
           </div>
         </div>
@@ -300,7 +332,10 @@ const FilterBar = ({filteredWithoutType, filters, setFilters}) => {
             </div>
           </div>
         </div>
-        <button className="bg-[#F08631] py-[14px] px-[20px] rounded-[8px] text-white w-full sm:hidden">
+        <button
+          onClick={closeModal}
+          className="bg-[#F08631] py-[14px] px-[20px] rounded-[8px] text-white w-full sm:hidden"
+        >
           تطبيق
         </button>
       </section>
