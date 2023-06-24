@@ -204,7 +204,11 @@ const Destinations = () => {
               >
                 <div
                   dir="rtl"
-                  className="relative shadow-md flex flex-col bg-white rounded-[12px] mx-[5px]"
+                  className="relative flex flex-col bg-white rounded-[12px] mx-[5px]"
+                  style={{
+                    boxShadow: "0px 4px 8px rgba(91, 116, 130, 0.08)",
+                    border: "1px solid rgba(152, 162, 179, 0.25)",
+                  }}
                 >
                   <div className="relative h-[245px] w-full">
                     <Image
