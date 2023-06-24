@@ -18,6 +18,7 @@ const RevsImgs = () => {
           variants={animateVariants}
           initial="hidden"
           whileInView="show"
+          whileHover={{x: +20, y: -20}}
           className="relative w-[130.99px] h-[118.85px] md:h-[112.45px] md:w-[123.94px] lg:h-[184.4px] lg:w-[203.24px]"
         >
           <Image
@@ -35,6 +36,7 @@ const RevsImgs = () => {
             opacity: 1,
             transition: {duration: 1, delay: 0.5},
           }}
+          whileHover={{x: -20, y: -20}}
           className="relative w-[141.85px] h-[183.38px] md:h-[173.52px] md:w-[134.22px] lg:h-[284.53px] lg:w-[220.09px]"
         >
           <Image
@@ -54,6 +56,7 @@ const RevsImgs = () => {
             opacity: 1,
             transition: {duration: 1, delay: 0.6},
           }}
+          whileHover={{x: +20, y: +10}}
           className="relative w-[90px] h-[98px] md:h-[92.5px] md:w-[134.22px] lg:h-[151.68px] lg:w-[220.09px]"
         >
           <Image
@@ -71,6 +74,7 @@ const RevsImgs = () => {
             opacity: 1,
             transition: {duration: 1, delay: 0.7},
           }}
+          whileHover={{x: +5, y: +20}}
           className="relative w-[141.85px] h-[183.38px] md:h-[173.52px] md:w-[134.22px] lg:h-[284.53px] lg:w-[220.09px]"
         >
           <Image
@@ -88,6 +92,7 @@ const RevsImgs = () => {
             opacity: 1,
             transition: {duration: 1, delay: 0.7},
           }}
+          whileHover={{x: -10, y: -20}}
           className="relative w-[90px] h-[98px] md:h-[92.5px] md:w-[134.22px] lg:h-[151.68px] lg:w-[220.09px]"
         >
           <Image
