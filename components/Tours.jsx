@@ -178,8 +178,8 @@ const Tours = () => {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M12.5 2.75024C5.563 2.75024 3.25 5.06324 3.25 12.0002C3.25 18.9372 5.563 21.2502 12.5 21.2502C19.437 21.2502 21.75 18.9372 21.75 12.0002C21.75 5.06324 19.437 2.75024 12.5 2.75024Z"
                 stroke={arrowWhite ? "#fff" : "#F6882F"}
                 strokeWidth="1.5"

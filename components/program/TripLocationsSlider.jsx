@@ -124,7 +124,7 @@ const TripLocationsSlider = ({isSmallScreen}) => {
   };
 
   return (
-    <div className="mb-[48px]">
+    <div className="flex flex-col  mb-[48px]">
       <div className="flex items-center gap-x-[8px]">
         <Image
           alt=""

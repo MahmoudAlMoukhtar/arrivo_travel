@@ -2,6 +2,7 @@ import Image from "next/image";
 import {useRouter} from "next/router";
 import React, {useState} from "react";
 import Select from "react-select";
+import {motion} from "framer-motion";
 const items = [
   {icon: "searches/rings.svg", title: "شهر عسل"},
   {icon: "searches/car.svg", title: "رحلات عائلية"},
@@ -39,6 +40,7 @@ const SearchedItem = ({item}) => {
 };
 
 const Book = () => {
+  const router = useRouter();
   const [selectColor, setSelectColor] = useState({
     city: "#A0A4AB",
     persons: "#A0A4AB",
@@ -51,14 +53,34 @@ const Book = () => {
       [e.target.name]: e.target.value === "" ? "#A0A4AB" : "#000",
     }));
   };
-  const router = useRouter();
+  const variants = {
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        type: "spring",
+        stiffness: 200,
+        damping: 20,
+        duration: 0.5,
+      },
+    },
+    hidden: {
+      opacity: 0,
+      scale: 0.5,
+    },
+  };
 
   return (
     <div className="py-[80px]">
       <div className="wrapper">
         <div className="flex flex-col gap-[28px] md:max-w-[897px] md:mx-auto">
           {/* first box */}
-          <div className="p-[16px] shadow-md rounded-lg animate__animated animate__flipInX">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            variants={variants}
+            className="p-[16px] shadow-md rounded-lg animate__animated animate__zoomIn"
+          >
             <div className="flex flex-col md:flex-row gap-[20px]">
               <div className="flex-1 flex flex-col gap-[8px] md:gap-[13px] h-[68px]">
                 <h6 className="text-[14px]">إختر المدينة</h6>
@@ -161,9 +183,13 @@ const Book = () => {
 
               <button
                 onClick={() => {
-                  router.push(
-                    `travels-programs?type=programs&country=${selectedOptionCountries.value}`
-                  );
+                  if (selectedOptionCountries && selectedOption) {
+                    router.push(
+                      `travels-programs?type=programs&country=${selectedOptionCountries.value}&minPersons=1&maxPersons=${selectedOption.value}`
+                    );
+                  } else {
+                    router.push(`travels-programs?type=programs`);
+                  }
                 }}
                 className="flex-1 text-white flex py-[24px] px-[20px] gap-[4px] items-center justify-center h-[68px] rounded-[8px] bg-orange hover:bg-[#D45C00] transtion duration-200"
               >
@@ -176,7 +202,7 @@ const Book = () => {
                 <span className="text-[16px] font-bold-500">إحجز مكانك</span>
               </button>
             </div>
-          </div>
+          </motion.div>
 
           {/* common searches */}
           <div className="flex flex-col gap-[8px]">

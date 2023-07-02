@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React, {useState} from "react";
+import {motion} from "framer-motion";
 
 const faqs = [
   {
@@ -26,7 +27,15 @@ const faqs = [
 
 const FAQ = ({question, answer, isOpen, toggleAnswer}) => {
   const Answer = ({a}) => {
-    return <p className="text-[12px] text-[#475467] mr-4">{a}</p>;
+    return (
+      <motion.p
+        initial={{opacity: 0, y: -5}}
+        animate={{opacity: 1, y: 0}}
+        className="text-[16px] text-[#475467] mr-4 py-2"
+      >
+        {a}
+      </motion.p>
+    );
   };
 
   return (
@@ -36,7 +45,7 @@ const FAQ = ({question, answer, isOpen, toggleAnswer}) => {
         onClick={toggleAnswer}
       >
         <div className="flex flex-col ">
-          <h6 className="text-[12px]">{question}</h6>
+          <h6 className="text-[18px]">{question}</h6>
         </div>
         <div className={isOpen ? "rotate-90" : ""}>
           <svg

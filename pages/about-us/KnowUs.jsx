@@ -17,7 +17,26 @@ const opaciVariants = {
     },
   },
 };
+const containerVariants = {
+  hidden: {opacity: 0.8},
+  show: {
+    opacity: 1,
+    transition: {
+      delayChildren: 0.2,
+      staggerChildren: 0.2,
+      duration: 0.2,
+    },
+  },
+};
 
+const serviceVariants = {
+  hidden: {translateY: -20, opacity: 0},
+  show: {
+    translateY: 0,
+    opacity: 1,
+    transition: {duration: 0.4},
+  },
+};
 const KnowUs = () => {
   return (
     <div className="bg-[#F4F7FD]">
@@ -38,15 +57,25 @@ const KnowUs = () => {
                 العالم.
               </p>
             </div>
-            <div className="grid grid-cols-12 gap-x-[25px] sm:gap-x-[20px] gap-y-[32px]">
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="show"
+              className="grid grid-cols-12 gap-x-[25px] sm:gap-x-[20px] gap-y-[32px]"
+            >
               {/* one item */}
               <div className=" col-span-12 sm:col-span-6 lg:col-span-3 flex flex-col md:items-center gap-[12px] p-1 md:p-2  duration-500 rounded-md ">
-                <Image
-                  alt=""
-                  src="/icons/About us/Large/Icon-3.svg"
-                  height={44}
-                  width={44}
-                />
+                <motion.div
+                  variants={serviceVariants}
+                  className="animate__animated animate__zoomIn"
+                >
+                  <Image
+                    alt=""
+                    src="/icons/About us/Large/Icon-3.svg"
+                    height={44}
+                    width={44}
+                  />
+                </motion.div>
                 <div className=" md:w-[285px] lg:w-auto flex flex-col md:items-center">
                   <h4 className="font-bold-600 text-[28px]">الرسالة</h4>
                   <p className="text-[14px] text-grey md:text-center">
@@ -58,12 +87,17 @@ const KnowUs = () => {
               </div>
               {/* one item */}
               <div className="col-span-12 sm:col-span-6 lg:col-span-3 flex flex-col md:items-center gap-[12px] p-1 md:p-2  duration-500 rounded-md ">
-                <Image
-                  alt=""
-                  src="/icons/About us/Large/Icon-2.svg"
-                  height={44}
-                  width={44}
-                />
+                <motion.div
+                  variants={serviceVariants}
+                  className="animate__animated animate__zoomIn"
+                >
+                  <Image
+                    alt=""
+                    src="/icons/About us/Large/Icon-2.svg"
+                    height={44}
+                    width={44}
+                  />
+                </motion.div>
                 <div className=" md:w-[285px] lg:w-auto flex flex-col md:items-center">
                   <h4 className="font-bold-600 text-[28px]">الرؤية</h4>
                   <p className="text-[14px] text-grey md:text-center">
@@ -75,12 +109,17 @@ const KnowUs = () => {
               </div>
               {/* one item */}
               <div className="col-span-12 sm:col-span-6 lg:col-span-3 flex flex-col md:items-center gap-[12px] p-1 md:p-2  duration-500 rounded-md ">
-                <Image
-                  alt=""
-                  src="/icons/About us/Large/Icon-1.svg"
-                  height={44}
-                  width={44}
-                />
+                <motion.div
+                  variants={serviceVariants}
+                  className="animate__animated animate__zoomIn"
+                >
+                  <Image
+                    alt=""
+                    src="/icons/About us/Large/Icon-1.svg"
+                    height={44}
+                    width={44}
+                  />
+                </motion.div>
                 <div className=" md:w-[285px] lg:w-auto flex flex-col md:items-center">
                   <h4 className="font-bold-600 text-[28px]">القيم</h4>
                   <p className="text-[14px] text-grey md:text-center">
@@ -92,12 +131,17 @@ const KnowUs = () => {
               </div>
               {/* one item */}
               <div className="col-span-12 sm:col-span-6 lg:col-span-3 flex flex-col md:items-center gap-[12px] p-1 md:p-2  duration-500 rounded-md ">
-                <Image
-                  alt=""
-                  src="/icons/About us/Large/Icon.svg"
-                  height={44}
-                  width={44}
-                />
+                <motion.div
+                  variants={serviceVariants}
+                  className="animate__animated animate__zoomIn"
+                >
+                  <Image
+                    alt=""
+                    src="/icons/About us/Large/Icon.svg"
+                    height={44}
+                    width={44}
+                  />
+                </motion.div>
                 <div className=" md:w-[285px] lg:w-auto flex flex-col md:items-center">
                   <h4 className="font-bold-600 text-[28px]">الأهداف</h4>
                   <p className="text-[14px] text-grey md:text-center">
@@ -107,7 +151,7 @@ const KnowUs = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

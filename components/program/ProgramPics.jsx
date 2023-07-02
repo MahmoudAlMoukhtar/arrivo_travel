@@ -48,18 +48,6 @@ const ProgramPics = ({isProgramTravel}) => {
 
     pauseOnHover: true,
 
-    responsive: [
-      {
-        breakpoint: 1440,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          initialSlide: 0,
-          // infinite: true,
-          // dots: true,
-        },
-      },
-    ],
     rtl: true,
   };
   return (
@@ -77,9 +65,9 @@ const ProgramPics = ({isProgramTravel}) => {
             </div>
           </div>
         ) : isSmallScreen ? (
-          <div className="md:h-[476px] mx-0 w-full">
+          <div className="w-full relative">
             <SlickSlider settings={settings}>
-              <div className=" h-[520px] sm:h-[300px] md:h-auto relative w-full">
+              <div className="col-span-12 h-[520px] sm:h-[300px] md:h-auto relative w-full">
                 <Image
                   src={`/images/programs/${imgs[0]}`}
                   alt=""
@@ -87,7 +75,7 @@ const ProgramPics = ({isProgramTravel}) => {
                   fill
                 />
               </div>
-              <div className=" h-[520px] sm:h-[300px] md:h-auto relative w-full">
+              <div className="col-span-12 h-[520px] sm:h-[300px] md:h-auto relative w-full">
                 <Image
                   src={`/images/programs/${imgs[1]}`}
                   alt=""
@@ -95,7 +83,7 @@ const ProgramPics = ({isProgramTravel}) => {
                   fill
                 />
               </div>
-              <div className=" h-[520px] sm:h-[300px] md:h-auto relative w-full">
+              <div className="col-span-12 h-[520px] sm:h-[300px] md:h-auto relative w-full">
                 <Image
                   src={`/images/programs/${imgs[2]}`}
                   alt=""
@@ -103,7 +91,7 @@ const ProgramPics = ({isProgramTravel}) => {
                   fill
                 />
               </div>
-              <div className=" h-[520px] sm:h-[300px] md:h-auto relative w-full">
+              <div className="col-span-12 h-[520px] sm:h-[300px] md:h-auto relative w-full">
                 <Image
                   src={`/images/programs/${imgs[3]}`}
                   alt=""
