@@ -10,11 +10,14 @@ import {useEffect, useState} from "react";
 import useTravelFilters from "../../../hooks/useTravelFilters";
 const Programs = ({data, openModal, modalIsOpen, closeModal, slideIn}) => {
   const router = useRouter();
-  const {type, country} = router.query;
+  const {type, country, minPersons, maxPersons} = router.query;
   const selectedType = typiesdata.find(t => t.slug === type);
   const [filters, setFilters] = useState({
     days: 20,
-    numberPersons: {maxSize: 7, minSize: 1},
+    numberPersons: {
+      maxSize: maxPersons ? maxPersons : 7,
+      minSize: minPersons ? minPersons : 1,
+    },
     priceRange: {maxPrice: 5000, minPrice: 1000},
     country: country,
     typeTravel: undefined,
