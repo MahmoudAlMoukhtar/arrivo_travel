@@ -3,11 +3,11 @@ import Offer from "../../components/sub/Offer";
 import Navbar from "../../components/common/Navbar";
 import Footer from "../../components/common/Footer";
 import Programs from "./programs/Programs";
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import {getFirestore, collection, getDocs} from "firebase/firestore";
+import app from "../../firebase";
 
-export async function getStaticProps() {
-  const url = "https://api.example.com/data";
-
+export async function getServerSideProps() {
   //const data = await fetchDataPromise(url);
   const programs = [
     {
@@ -416,14 +416,33 @@ export async function getStaticProps() {
       longTimeTravel: 5,
     },
   ];
-  return {
-    props: {
-      data: programs,
-    },
-  };
+
+  try {
+    const db = getFirestore(app);
+    const tripsRef = collection(db, "trips");
+    const querySnapshot = await getDocs(tripsRef);
+    const trips = querySnapshot.docs.map(doc => doc.data());
+    console.log("from server", trips);
+    return {
+      props: {
+        trips,
+        data: programs,
+      },
+    };
+  } catch (error) {
+    console.error("error");
+    console.error(error.message);
+    return {
+      props: {
+        trips: [],
+        data: programs,
+      },
+    };
+  }
 }
 
-const TravelsPrograms = ({data}) => {
+const TravelsPrograms = ({trips, data}) => {
+  console.log("from client side", trips);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [slideIn, setSlideIn] = useState(false);
 
@@ -438,6 +457,16 @@ const TravelsPrograms = ({data}) => {
       setModalIsOpen(false);
     }, 500);
   };
+  useEffect(() => {
+    async function makeRequest() {
+      const db = getFirestore(app);
+      const tripsRef = collection(db, "trips");
+      const querySnapshot = await getDocs(tripsRef);
+      const trips = querySnapshot.docs.map(doc => doc.data());
+      console.log(trips);
+    }
+    makeRequest();
+  }, []);
   return (
     <div className="">
       <Head>
