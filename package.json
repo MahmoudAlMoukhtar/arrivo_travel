@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "animate.css": "^4.1.1",
+    "firebase": "^9.23.0",
+    "firebase-admin": "^11.9.0",
     "framer-motion": "^10.12.10",
     "isotope-layout": "^3.0.6",
     "next": "13.3.2",
