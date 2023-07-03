@@ -7,6 +7,7 @@ import app from "../../firebase";
 import OurBlogs from "./OurBlogs";
 import {useEffect, useState} from "react";
 import {collection, getDocs, getFirestore} from "firebase/firestore";
+import BlogPopularShort from "../../components/BlogPopularShort";
 export async function getServerSideProps() {
   try {
     const db = getFirestore(app);
@@ -57,6 +58,7 @@ export default function Blogs({openModal, slideIn}) {
         <Offer />
         <Navbar openModal={openModal} slideIn={slideIn} />
         <OurBlogs blogs={blogs} />
+        <BlogPopularShort />
         <ContactShort />
       </main>
 
