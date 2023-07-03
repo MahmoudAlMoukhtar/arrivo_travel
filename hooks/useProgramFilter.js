@@ -93,7 +93,7 @@ const tours = [
   },
   {
     img: "dests/trabzon.png",
-    country: "trabzon",
+    country: "trabzaon",
     title: "طرابزون",
     rating: {
       avg: 5.0,
