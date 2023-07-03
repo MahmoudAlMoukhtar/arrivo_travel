@@ -8,28 +8,28 @@ import OurBlogs from "./OurBlogs";
 import {useEffect, useState} from "react";
 import {collection, getDocs, getFirestore} from "firebase/firestore";
 import BlogPopularShort from "../../components/BlogPopularShort";
-export async function getServerSideProps() {
-  try {
-    const db = getFirestore(app);
-    const tripsRef = collection(db, "blogs");
-    const querySnapshot = await getDocs(tripsRef);
-    const blogs = querySnapshot.docs.map(doc => doc.data());
-    console.log("from server", blogs);
-    return {
-      props: {
-        blogs,
-      },
-    };
-  } catch (error) {
-    console.error("error");
-    console.error(error.message);
-    return {
-      props: {
-        blogs: [],
-      },
-    };
-  }
-}
+// export async function getServerSideProps() {
+//   try {
+//     const db = getFirestore(app);
+//     const tripsRef = collection(db, "blogs");
+//     const querySnapshot = await getDocs(tripsRef);
+//     const blogs = querySnapshot.docs.map(doc => doc.data());
+//     console.log("from server", blogs);
+//     return {
+//       props: {
+//         blogs,
+//       },
+//     };
+//   } catch (error) {
+//     console.error("error");
+//     console.error(error.message);
+//     return {
+//       props: {
+//         blogs: [],
+//       },
+//     };
+//   }
+// }
 
 export default function Blogs({openModal, slideIn}) {
   const [blogs, setBlogs] = useState();

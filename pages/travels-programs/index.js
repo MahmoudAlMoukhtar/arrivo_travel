@@ -416,33 +416,37 @@ export async function getServerSideProps() {
       longTimeTravel: 5,
     },
   ];
-
-  try {
-    const db = getFirestore(app);
-    const tripsRef = collection(db, "trips");
-    const querySnapshot = await getDocs(tripsRef);
-    const trips = querySnapshot.docs.map(doc => doc.data());
-    console.log("from server", trips);
-    return {
-      props: {
-        trips,
-        data: programs,
-      },
-    };
-  } catch (error) {
-    console.error("error");
-    console.error(error.message);
-    return {
-      props: {
-        trips: [],
-        data: programs,
-      },
-    };
-  }
+  return {
+    props: {
+      trips: [],
+      data: programs,
+    },
+  };
+  // try {
+  //   const db = getFirestore(app);
+  //   const tripsRef = collection(db, "trips");
+  //   const querySnapshot = await getDocs(tripsRef);
+  //   const trips = querySnapshot.docs.map(doc => doc.data());
+  //   console.log("from server", trips);
+  //   return {
+  //     props: {
+  //       trips,
+  //       data: programs,
+  //     },
+  //   };
+  // } catch (error) {
+  //   console.error("error");
+  //   console.error(error.message);
+  //   return {
+  //     props: {
+  //       trips: [],
+  //       data: programs,
+  //     },
+  //   };
+  // }
 }
 
 const TravelsPrograms = ({trips, data}) => {
-  console.log("from client side", trips);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [slideIn, setSlideIn] = useState(false);
 

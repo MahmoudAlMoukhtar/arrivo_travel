@@ -423,28 +423,33 @@ export async function getServerSideProps() {
       longTimeTravel: 5,
     },
   ];
-
-  try {
-    const db = getFirestore(app);
-    const tripsRef = collection(db, "trips");
-    const querySnapshot = await getDocs(tripsRef);
-    const trips = querySnapshot.docs.map(doc => doc.data());
-    console.log("from server", trips);
-    return {
-      props: {
-        trips,
-        data: programs,
-      },
-    };
-  } catch (error) {
-    console.error("error");
-    console.error(error.message);
-    return {
-      props: {
-        trips: programs,
-      },
-    };
-  }
+  return {
+    props: {
+      trips: [],
+      data: programs,
+    },
+  };
+  // try {
+  //   const db = getFirestore(app);
+  //   const tripsRef = collection(db, "trips");
+  //   const querySnapshot = await getDocs(tripsRef);
+  //   const trips = querySnapshot.docs.map(doc => doc.data());
+  //   console.log("from server", trips);
+  //   return {
+  //     props: {
+  //       trips,
+  //       data: programs,
+  //     },
+  //   };
+  // } catch (error) {
+  //   console.error("error");
+  //   console.error(error.message);
+  //   return {
+  //     props: {
+  //       trips: programs,
+  //     },
+  //   };
+  // }
 }
 
 export default function Home({openModal, slideIn, trips}) {
