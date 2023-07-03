@@ -79,10 +79,13 @@ const Tour = ({tour, createPersonsArabic}) => {
   );
 };
 
-const Tours = () => {
+const Tours = ({trips}) => {
   const [arrowWhite, setArrowWhite] = useState(false);
 
-  const {filteredPrograms, country, setCountry} = useProgramFilter("istanbul");
+  const {filteredPrograms, country, setCountry} = useProgramFilter(
+    "istanbul",
+    trips
+  );
 
   const createPersonsArabic = persons => {
     const {from, to} = persons;
@@ -106,6 +109,15 @@ const Tours = () => {
 
     return toReturn;
   };
+
+  const buttons = [
+    {name: "trabzaon", text: "طرابزون"},
+    {name: "istanbul", text: "اسطنبول"},
+    {name: "antalya", text: "انطاليا"},
+    {name: "groups", text: "رحلات جماعية"},
+    {name: "kapadokya", text: "كبودكيا"},
+  ];
+
   const animateVariants = {
     hidden: {
       opacity: 0,
@@ -140,7 +152,7 @@ const Tours = () => {
             </p>
           </div>
         </div>
-        <ToursBar setCountry={setCountry} />
+        <ToursBar buttons={buttons} setCountry={setCountry} />
       </div>
       {/* actual tours */}
       <div className="wrapper">
