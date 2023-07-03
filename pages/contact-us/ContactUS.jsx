@@ -17,7 +17,7 @@ const ContctUs = () => {
   const [value, setValue] = useState();
 
   return (
-    <div className="wrapper px-4 sm:px-0">
+    <div className="wrapper py-4 px-2 sm:px-0">
       <div className="grid grid-cols-12 items-start justify-start gap-[20px]">
         <div className="col-span-12 md:col-span-6 lg:col-span-6">
           <div className="flex justify-between items-center">
