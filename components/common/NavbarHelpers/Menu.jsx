@@ -230,7 +230,7 @@ const Menu = ({handleShowDropdown, showDropdown, setShowDropdown}) => {
           <Image alt="/" src="/icons/navbar/down.svg" height={24} width={24} />
         </div>
       </button>
-      <Link href="/services">
+      <Link href="/our-blogs">
         <div className="text-[#636973] text-[12px] xl:text-[14px] hover:text-deep flex items-center">
           المدونة
           <Image alt="/" src="/icons/navbar/down.svg" height={24} width={24} />

@@ -140,7 +140,7 @@ const Navbar = ({openModal, slideIn, closeModal}) => {
                   الخدمات
                 </div>
               </button>
-              <Link href="/services">
+              <Link href="/our-blogs">
                 <div className="text-[#636973] text-[12px] xl:text-[14px] hover:text-deep flex items-center">
                   المدونة
                 </div>
